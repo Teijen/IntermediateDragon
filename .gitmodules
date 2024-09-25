@@ -1,0 +1,9 @@
+[submodule "dragonGhidra"]
+	path = dragonGhidra
+	url = https://github.com/lasserre/ghidra
+[submodule "astlib"]
+	path = astlib
+	url = https://github.com/Teijen/astlib
+[submodule "datatype-recovery-experiments"]
+	path = datatype-recovery-experiments
+	url = https://github.com/Teijen/datatype-recovery-experiments
