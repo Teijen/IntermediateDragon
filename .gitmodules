@@ -7,3 +7,6 @@
 [submodule "datatype-recovery-experiments"]
 	path = datatype-recovery-experiments
 	url = https://github.com/Teijen/datatype-recovery-experiments
+[submodule "wildebeest"]
+	path = wildebeest
+	url = https://github.com/lasserre/wildebeest
