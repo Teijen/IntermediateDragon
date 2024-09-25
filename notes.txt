@@ -1,0 +1,7 @@
+#gradle.properties file edits to get jdk19 to work with dragonGhidra gradle build
+#also make sure to enable submods recursively to get the json library used added
+org.gradle.jvmargs=--add-opens java.base/java.lang=ALL-UNNAMED
+
+#gitignore includes custom Ghidra built from dragonGhidra and venv python 
+
+#Ghidra/Features/Decompiler/src/decompile/cpp/astvisitors explains json ast format and calculation from ghidra POV

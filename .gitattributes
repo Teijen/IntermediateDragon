@@ -1,0 +1,4 @@
+dragonData/sample_tydamin.files/dev-perl/Gtk2-1.249.930/Gtk2.so filter=lfs diff=lfs merge=lfs -text
+dragonData/sample_tydamin.files/gui-libs/gtk-4.6.5/gtk4-encode-symbolic-svg filter=lfs diff=lfs merge=lfs -text
+dragonData/sample_tydamin.tar.gz filter=lfs diff=lfs merge=lfs -text
+dragonData/sample_tydamin.files/games-emulation/advancemame-3.9/advmame filter=lfs diff=lfs merge=lfs -text
