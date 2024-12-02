@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
-        "./wildebeest"
+        "./wildebeest",
+        "./../../binaryninja/python/binaryninja"
     ]
 }
