@@ -5,3 +5,5 @@ org.gradle.jvmargs=--add-opens java.base/java.lang=ALL-UNNAMED
 #gitignore includes custom Ghidra built from dragonGhidra and venv python 
 
 #Ghidra/Features/Decompiler/src/decompile/cpp/astvisitors explains json ast format and calculation from ghidra POV
+
+need to run ghidra server install binary, add user via admin binary. Make sure Pyhidra is pointing to custom ghidra version in the terminal env variable GHIDRA_INSTALL_DIR
