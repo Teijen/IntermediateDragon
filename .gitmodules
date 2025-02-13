@@ -10,3 +10,6 @@
 [submodule "wildebeest"]
 	path = wildebeest
 	url = https://github.com/lasserre/wildebeest
+[submodule "dirty"]
+	path = dirty
+	url = https://github.com/Teijen/DIRTY.git
