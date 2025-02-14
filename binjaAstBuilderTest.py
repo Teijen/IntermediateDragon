@@ -1,3 +1,5 @@
+import hashlib
+
 from binaryninja import *
 from binaryninja import lineardisassembly
 from binaryninja.function import *
@@ -8,6 +10,7 @@ from binaryninja.enums import (
 
 from astlib import astBinja
 from varlib.datatype import datatypes as dt
+from varlib.datatype import structtype as st
 from varlib.location import Location as lt
 #this should get overwritten by hash of address to create unique id
 valueOfID = 0
@@ -87,11 +90,9 @@ unaryOperations = {
         97: 'HLIL_FTRUNC'
 }
 
-def get_in(intruction) -> HighLevelILInstruction:
-    """
-    Get the HighLevelIL AST for the given instruction
-    """
-    return 
+def generate_unique_id(address: int) -> int:
+        # Generate a unique integer ID based on the address
+        return int(hashlib.md5(str(address).encode()).hexdigest(), 16) % (10 ** 8)
     
 
 def typeConverter(BinjaType,bv):
@@ -137,9 +138,14 @@ def typeConverter(BinjaType,bv):
             typeCon = dt.BuiltinType.from_standard_name(dt._builtin_floats_by_size[BinjaType.width])
         elif BinjaType.type_class == 4: #StructTypeClass, has StrucutreVariant value
             if BinjaType.type == 2:
-                typeCon = dt.DataType('UNION')
+                #this is method to generate a unique id for the struct using properties from binary ninja
+                #possible collision but unlikely
+                sid = generate_unique_id(BinjaType.width + BinjaType.pointer_offset)
+
+                typeCon = st.StructType(None,sid,False,BinjaType.altname)
             else:
-                typeCon = dt.DataType('STRUCT')   
+                sid = generate_unique_id(BinjaType.width + BinjaType.pointer_offset)
+                typeCon = st.UnionType(None,sid,BinjaType.altname)
 
         elif BinjaType.type_class == 12: #wideCharTypeClass
             typeCon = dt.BuiltinType.from_standard_name('char')
@@ -159,6 +165,40 @@ def missingInts():
     print(missingInts)
     print(len(missingInts))
 
+
+def recursiveTraversal(node, hlilOp):
+    """
+    Recursively traverse the HLIL tree to append nodes to the AST
+    """
+    # Check if the node is a valid HLIL operation
+    # if type(hlilOp) == list:
+    #     if hlilOp == None or not hlilOp:
+    #         print('end node') 
+    #         return
+    #     elif hlilOp[0] == 'constant' or hlilOp== [] or hlilOp[0] == 'src':
+    #         print('end node')
+    #         return
+    # elif type(hlilOp) == int:
+    #     print('end node')
+    #     return
+   
+
+    #constants and variables/registers are the terminal nodes in the graph
+    #per Binja Slack channel
+    if not isinstance(hlilOp, HighLevelILInstruction):
+        print(hlilOp)
+        return
+
+    # # Print the operation name
+    #print('normal node')
+    print(hlilOp.ast)
+
+    # Recursively traverse the operands
+    for operand in hlilOp.detailed_operands:
+        recursiveTraversal(node, operand[1])
+
+    return
+
 def get_ast(bv):
     for func in bv.functions:
 
@@ -166,6 +206,8 @@ def get_ast(bv):
         #set up the ast builder
         #first in the translation unit declaration
         tu = astBinja.TranslationUnitDecl()
+
+        
         #then the function declaration with translation unit as parent
         funcName = func.name
         funcAddress = func.start
@@ -173,13 +215,17 @@ def get_ast(bv):
         funcReturnType = typeConverter(funcReturnType,bv)
         funcParams = func.parameter_vars.vars
         funcFirstHLILTemp = func.hlil.root
+
+
+        # nodeTest = astBinja.VarDecl.from_hlil(func.hlil.root,valueOfID,funcName,funcReturnType,lt('stack'))
+        # print(nodeTest.to_dict())
+        # return
         #need to make param objects from var objects and convert return type
         funcParamsConverted = []
 
         for each in funcParams:
             typeCon = typeConverter(each.type,bv)
-            print(type(typeCon))
-            funcParamsConverted.append(astBinja.ParmVarDecl.from_hlil(funcFirstHLILTemp, valueOfID, each.name, typeCon, lt('stack')))
+            funcParamsConverted.append(astBinja.ParmVarDecl.from_hlil(funcFirstHLILTemp, valueOfID, each.last_seen_name, typeCon, lt('stack')))
 
 
 
@@ -187,32 +233,46 @@ def get_ast(bv):
         funcDecl = astBinja.FunctionDecl(valueOfID,  funcName, funcAddress, False, funcReturnType, funcParamsConverted)
         tu.add_child(funcDecl)
         #then the function body  as a combo statement with the function declaration as parent
-        print(tu.to_dict())
-        #return
+        funcBodyBase = astBinja.CompoundStmt()
+        #add the function body to the function declaration
+        funcDecl.add_child(funcBodyBase)
+        #print(tu.to_dict())
         #traverse each hlil instruction in the function in dfs order
+        instructionsDFS = []
+
         for a in func.hlil.traverse(lambda x: x):
-
-            
-                
-            if a.core_instr.operation.value == 100:
-                # print()
-                # print(a.ast)
-                # print(a.operands)
-                # print(a.detailed_operands)
-                # print(a.core_instr)
-                # print(a.core_instr.operation.value) #can get intruction type and make a map of values to ghidra ast stuff
-                # print(type(str(a.core_instr.operation)))
-                # print(a.core_instr.operands)
-                # print(a.mlil)
-                # if a.mlil:
-                #     print(a.mlil.instr)
-                #     print(a.mlil)
-                    #print(a.mlil.instr.value.type)
-                # print(a.llil) #type info not in llil
-                # print(a.core_instr.operands)
-                print()
-                #break
-
+            #print(a)
+            #print(a.detailed_operands)
+            recursiveTraversal(funcBodyBase, a)
+            #print(a.instr.value.type)
+            #print(a.instr.value.operation.value)
+            #print(a.instr.value.operation)
+            #print(a.instr.value.operation.value)
+            #print(a.instr.value.operation.name)
+            #print(a.instr.value.operation.name == 'HLIL_CALL')
+            #print(a.instr.value.operation.name == 'HLIL_CALL_INDIRECT')
+            #instructionsDFS.append(a)
+            break
+        
+        # a = instructionsDFS[0]
+        # print(a.ast)
+        # print(a.operands)
+        # print(a.detailed_operands)
+        # print(a.operands[0])
+        # print(instructionsDFS[2].ast)
+        #print(a.core_instr)
+        # print(a.core_instr.operation.value) #can get intruction type and make a map of values to ghidra ast stuff
+        # print(type(str(a.core_instr.operation)))
+        # print(a.core_instr.operands)
+        # print(a.mlil)
+        # if a.mlil:
+        #     print(a.mlil.instr)
+        #     print(a.mlil)
+        #     print(a.mlil.instr.value.type)
+        # print(a.llil) #type info not in llil
+        # print(a.core_instr.operands)
+        print()
+        #break
 
 
         # for a in func.hlil.traverse(lambda x: x):
