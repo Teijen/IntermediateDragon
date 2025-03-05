@@ -87,7 +87,35 @@ unaryOperations = {
         94: 'HLIL_ROUND_TO_INT', #again casting?
         95: 'HLIL_FLOOR',
         96: 'HLIL_CEIL',
-        97: 'HLIL_FTRUNC'
+        97: 'HLIL_FTRUNC',
+        111: 'HLIL_ASSIGN_MEM_SSA',
+        112: 'HLIL_ASSIGN_UNPACK_MEM_SSA',
+        115: 'HLIL_DEREF_SSA',
+        116: 'HLIL_DEREF_FIELD_SSA'
+}
+
+callOperations = {
+        
+        62: 'HLIL_CALL',
+        76: 'HLIL_SYSCALL',
+        77: 'HLIL_TAILCALL',
+        117: 'HLIL_CALL_SSA',
+        118: 'HLIL_SYSCALL_SSA'
+}
+
+#these operations do not make sense in the context of the AST
+#they will normally be used in Reverse Engineering operations
+#for testing purposes they will be ignored, and handled as a null node
+reverseEngineeringOperations = {
+        
+        78: 'HLIL_INTRINSIC',
+        79: 'HLIL_BP',
+        80: 'HLIL_TRAP',
+        81: 'HLIL_UNDEF',
+        82: 'HLIL_UNIMPL',
+        83: 'HLIL_UNIMPL_MEM',
+        106: 'HLIL_UNREACHABLE',
+        119: 'HLIL_INTRINSIC_SSA'
 }
 
 def generate_unique_id(address: int) -> int:
@@ -139,7 +167,10 @@ def typeConverter(BinjaType,bv):
         elif BinjaType.type_class == 4: #StructTypeClass, has StrucutreVariant value
             if BinjaType.type == 2:
                 #this is method to generate a unique id for the struct using properties from binary ninja
-                #possible collision but unlikely
+                #possible collision but unlikely, 
+
+                #should edit, var.coreVariable.identifier is a UID so I should use that, but need to 
+                #figure out how to go from Type to Variable
                 sid = generate_unique_id(BinjaType.width + BinjaType.pointer_offset)
 
                 typeCon = st.StructType(None,sid,False,BinjaType.altname)
@@ -156,15 +187,132 @@ def typeConverter(BinjaType,bv):
             #raise Exception('Unknown type class: {}'.format
     return typeCon
 
-def missingInts():
-    missingInts = []
-    for i in range(0, 122):
-        if i not in binaryOperations and i not in unaryOperations:
-            missingInts.append(i)
+def astNodeFromHLIL(hlilOp):
+    """
+    Convert the given HLIL operation to an AST node
+    #ssa variants default to normal hlil instrucitons here
+    """
+    # Check if the node is a valid HLIL operation
+    if not isinstance(hlilOp, HighLevelILInstruction):
+        print(hlilOp)
+        return None
 
-    print(missingInts)
-    print(len(missingInts))
+    opvalue = hlilOp.instr.value.operation.value
+    
+    # Check if the operation is a binary operation
+    if opvalue in binaryOperations:
+        node = astBinja.BinaryOperator.from_hlil(hlilOp)
+    # Check if the operation is a unary operation
+    elif opvalue in unaryOperations:
+        node = astBinja.UnaryOperator.from_hlil(hlilOp)
+    # Check if the operation is a call operation
+    elif opvalue in callOperations:
+        node = astBinja.CallExpr.from_hlil(hlilOp)
+    # Check if the operation is a reverse engineering operation
+    elif opvalue in reverseEngineeringOperations:
+        node = astBinja.NullNode.from_hlil(hlilOp)
+    elif opvalue == 0: #HLIL_NOP, might get removed as base case, tesing as null node
+        node = astBinja.NullNode.from_hlil(hlilOp)
+    elif opvalue == 1: #HLIL_BLOCK
+        #compound statement
+        node = astBinja.CompoundStmt.from_hlil(hlilOp)
+    elif opvalue == 2: #HLIL_IF
+        #if statement
+        node = astBinja.IfStmt.from_hlil(hlilOp)
+    elif opvalue == 3 or opvalue == 107: #HLIL_WHILE
+        #while statement
+        node = astBinja.WhileStmt.from_hlil(hlilOp)
+    elif opvalue == 4 or opvalue == 108: #HLIL_DO_WHILE
+        #do while statement
+        node = astBinja.DoStmt.from_hlil(hlilOp)
+    elif opvalue == 5 or opvalue == 108: #HLIL_FOR
+        #for statement
+        node = astBinja.ForStmt.from_hlil(hlilOp)
+    elif opvalue == 6: #HLIL_SWITCH
+        #switch statement
+        node = astBinja.SwitchStmt.from_hlil(hlilOp)
+    elif opvalue == 7: #HLIL_CASE
+        #case statement
+        node = astBinja.CaseStmt.from_hlil(hlilOp)
+    elif opvalue == 8: #HLIL_BREAK
+        #break statement
+        node = astBinja.BreakStmt.from_hlil(hlilOp)
+    elif opvalue == 9: #HLIL_CONTINUE
+        #continue statement, mapped to GotoStmt since no native node
+        node = astBinja.GotoStmt.from_hlil(hlilOp)
+    elif opvalue == 10: #HLIL_JUMP
+        #goto statement
+        node = astBinja.GotoStmt.from_hlil(hlilOp)
+    elif opvalue == 11: #HLIL_RETURN
+        #return statement
+        node = astBinja.ReturnStmt.from_hlil(hlilOp)
+    elif opvalue == 12: #HLIL_NORET, think about this one some more
+        #This instruction will never be executed, the instruction before it is a call that doesn't return
+        #may have applications with malware binaries
+        node = astBinja.NullNode.from_hlil(hlilOp)
+    elif opvalue == 13: #HLIL_Goto
+        #goto statement
+        node = astBinja.GotoStmt.from_hlil(hlilOp)
+    elif opvalue == 14: #HLIL_LABEL
+        #dont know what this one is, gonna make null for placeholder
+        node = astBinja.NullNode.from_hlil(hlilOp)
+    elif opvalue == 15: #VAR_DECLARE
+        #variable declaration, Get params for node
+        dtype = typeConverter(hlilOp.var.type,bv)
+        idValue = hlilOp.var.core_variable.identifier
+        name = hlilOp.var.last_seen_name
+        location = lt('stack')
+        node = astBinja.VarDecl.from_hlil(hlilOp,idValue,name,dtype,location)
+    elif opvalue == 16 or opvalue == 110: #VAR_INIT, possible changes to this one, binary operator for assignment?
+        #variable initialization
+        node = astBinja.VarDecl.from_hlil(hlilOp)
+    elif opvalue == 17: #ASSIGN
+        #assignment operator maybe
+        node = astBinja.BinaryOperator.from_hlil(hlilOp)
+    elif opvalue == 18: #ASSIGN_UNPACK
+        #unpacking assignment, no documentation on this one
+        node = astBinja.BinaryOperator.from_hlil(hlilOp)
+    elif opvalue == 19 or opvalue == 113: #VAR
+        #variable reference, does that have a node?
+        node = astBinja.VarRef.from_hlil(hlilOp)
+    elif opvalue == 20: #StructField
+        #struct field reference
+        node = astBinja.MemberExpr.from_hlil(hlilOp)
+    elif opvalue == 21 or opvalue == 114: #ArrayIndex
+        #array index reference
+        node = astBinja.ArraySubscriptExpr.from_hlil(hlilOp)
+    elif opvalue == 26: #CONSTANT
+        #constant value
+        node = astBinja.ConstantExpr.from_hlil(hlilOp)
+    elif opvalue == 27: #CONSTANT_DATA
+        #constant data, no documentation on this one, valueDecl. VarDecl?
+        #node = astBinja.ConstantExpr.from_hlil(hlilOp)
+        node = None
+    elif opvalue == 28: #ConstantPointer,
+        #constant pointer, no documentation on this one VarDecl?
+        #node = astBinja.ConstantExpr.from_hlil(hlilOp)
+        node = None
+    elif opvalue == 29: #ExternalPointer
+        #external pointer, no documentation on this one VarDecl?
+        #node = astBinja.ConstantExpr.from_hlil(hlilOp)
+        node = None
+    elif opvalue == 30: #FloatConstant
+        #float constant, no documentation on this one, maybe new thing
+        node = astBinja.ConstantExpr.from_hlil(hlilOp)
+    elif opvalue == 31: #Import
+        #A constant integral value representing an imported address, pointer or pointer?
+        node = astBinja.ConstantExpr.from_hlil(hlilOp)
+    elif opvalue == 120: #VarPhi
+        #A PHI represents the combination of several prior versions of a variable when differnet basic blocks coalesce into a single destination 
+        # and it's unknown which path was taken.
+        node = astBinja.VarDecl.from_hlil(hlilOp)
+    elif opvalue == 121: #MemPhi
+        #A memory PHI represents memory modifications that could have occured down different source basic blocks similar to a VAR_PHI
+        node = None
+    else:
+        print("temp")
 
+    return node
 
 def recursiveTraversal(node, hlilOp):
     """
@@ -181,11 +329,13 @@ def recursiveTraversal(node, hlilOp):
     # elif type(hlilOp) == int:
     #     print('end node')
     #     return
-   
+    
 
     #constants and variables/registers are the terminal nodes in the graph
     #per Binja Slack channel
     if not isinstance(hlilOp, HighLevelILInstruction):
+
+        #need logic for constants and variables to create end nodes
         print(hlilOp)
         return
 
@@ -224,6 +374,7 @@ def get_ast(bv):
         funcParamsConverted = []
 
         for each in funcParams:
+            valueOfID = each.core_variable.identifier
             typeCon = typeConverter(each.type,bv)
             funcParamsConverted.append(astBinja.ParmVarDecl.from_hlil(funcFirstHLILTemp, valueOfID, each.last_seen_name, typeCon, lt('stack')))
 
@@ -238,7 +389,7 @@ def get_ast(bv):
         funcDecl.add_child(funcBodyBase)
         #print(tu.to_dict())
         #traverse each hlil instruction in the function in dfs order
-        instructionsDFS = []
+        #only need root node to start but traverse is a generator
 
         for a in func.hlil.traverse(lambda x: x):
             #print(a)
