@@ -1,4 +1,5 @@
 import hashlib
+import math
 
 from binaryninja import *
 from binaryninja import lineardisassembly
@@ -12,8 +13,7 @@ from astlib import astBinja
 from varlib.datatype import datatypes as dt
 from varlib.datatype import structtype as st
 from varlib.location import Location as lt
-#this should get overwritten by hash of address to create unique id
-valueOfID = 0
+
 
 binaryOperations = {
         32: '+', #HLIL_ADD
@@ -139,7 +139,7 @@ def typeConverter(BinjaType,bv):
     #check against type category for need of recursion
     if BinjaType.type_class == 6: #PointerTypeClass
         typeCon = dt.PointerType(typeConverter(BinjaType.target,bv),BinjaType.width)
-    elif BinjaType.type_class == 11: #NamedTypeReferenceClass
+    elif BinjaType.type_class == 11: #NamedTypeReferenceClass, might need to change, structs and unions are named types, but has target so maybe not
         typeCon = dt.PointerType(typeConverter(BinjaType.target(bv),bv),BinjaType.width)
     elif BinjaType.type_class == 7: #ArrayTypeClass
         typeCon = dt.ArrayType(typeConverter(BinjaType.element_type,bv), BinjaType.count)
@@ -187,7 +187,7 @@ def typeConverter(BinjaType,bv):
             #raise Exception('Unknown type class: {}'.format
     return typeCon
 
-def astNodeFromHLIL(hlilOp):
+def astNodeFromHLIL(hlilOp,parentNode):
     """
     Convert the given HLIL operation to an AST node
     #ssa variants default to normal hlil instrucitons here
@@ -197,7 +197,7 @@ def astNodeFromHLIL(hlilOp):
         print(hlilOp)
         return None
 
-    opvalue = hlilOp.instr.value.operation.value
+    opvalue = hlilOp.core_instr.operation.value
     
     # Check if the operation is a binary operation
     if opvalue in binaryOperations:
@@ -258,26 +258,64 @@ def astNodeFromHLIL(hlilOp):
         node = astBinja.NullNode.from_hlil(hlilOp)
     elif opvalue == 15: #VAR_DECLARE
         #variable declaration, Get params for node
+        bv = hlilOp.function.view
         dtype = typeConverter(hlilOp.var.type,bv)
         idValue = hlilOp.var.core_variable.identifier
         name = hlilOp.var.last_seen_name
         location = lt('stack')
         node = astBinja.VarDecl.from_hlil(hlilOp,idValue,name,dtype,location)
     elif opvalue == 16 or opvalue == 110: #VAR_INIT, possible changes to this one, binary operator for assignment?
-        #variable initialization
-        node = astBinja.VarDecl.from_hlil(hlilOp)
+        #variable initialization. setting dest to result of expreseseion where dest is declared variable, treating as DeclRefExpr
+        variable = hlilOp.dest
+        bv = hlilOp.function.view
+        refID = variable.core_variable.identifier
+        dtype = typeConverter(variable.type,bv)
+        if type(dtype) == dt.FunctionType:
+            decl_type = 1
+        elif type(dtype) == dt.EnumType:
+            decl_type = 3
+        else:
+            decl_type = 2
+        #this should be already a ast node so this should work because all nodes should have the tudecl as the root
+        tudecl = parentNode.find_root_node()
+        node = astBinja.DeclRefExpr.from_hlil(hlilOp,tudecl,refID,decl_type)
     elif opvalue == 17: #ASSIGN
-        #assignment operator maybe
+        #assignment operator maybe, seems like operator
         node = astBinja.BinaryOperator.from_hlil(hlilOp)
     elif opvalue == 18: #ASSIGN_UNPACK
-        #unpacking assignment, no documentation on this one
+        #unpacking assignment, no documentation on this one, seems like operator
         node = astBinja.BinaryOperator.from_hlil(hlilOp)
     elif opvalue == 19 or opvalue == 113: #VAR
         #variable reference, does that have a node?
-        node = astBinja.VarRef.from_hlil(hlilOp)
+        variable = hlilOp.var
+        bv = hlilOp.function.view
+        refID = variable.core_variable.identifier
+        dtype = typeConverter(variable.type,bv)
+        if type(dtype) == dt.FunctionType:
+            decl_type = 1
+        elif type(dtype) == dt.EnumType:
+            decl_type = 3
+        else:
+            decl_type = 2
+        #this should be already a ast node so this should work because all nodes should have the tudecl as the root
+        tudecl = parentNode.find_root_node()
+        node = astBinja.DeclRefExpr.from_hlil(hlilOp,tudecl,refID,decl_type)
     elif opvalue == 20: #StructField
-        #struct field reference
-        node = astBinja.MemberExpr.from_hlil(hlilOp)
+        #struct field reference, with dummy sdb for now
+        offset = hlilOp.offset
+        try:
+            var = hlilOp.src.var
+        except:
+            var = hlilOp.src.vars[0]
+            
+
+        arrow = False
+        if type(var.type) == PointerType:
+            arrow = True
+            
+
+        name = var.last_seen_name
+        node = astBinja.MemberExpr.from_hlil(hlilOp,0,offset,name, arrow)
     elif opvalue == 21 or opvalue == 114: #ArrayIndex
         #array index reference
         node = astBinja.ArraySubscriptExpr.from_hlil(hlilOp)
@@ -285,17 +323,17 @@ def astNodeFromHLIL(hlilOp):
         #constant value
         node = astBinja.ConstantExpr.from_hlil(hlilOp)
     elif opvalue == 27: #CONSTANT_DATA
-        #constant data, no documentation on this one, valueDecl. VarDecl?
+        #constant data, like global constant, valueDecl. VarDecl?
         #node = astBinja.ConstantExpr.from_hlil(hlilOp)
         node = None
     elif opvalue == 28: #ConstantPointer,
         #constant pointer, no documentation on this one VarDecl?
-        #node = astBinja.ConstantExpr.from_hlil(hlilOp)
-        node = None
+        node = astBinja.ConstantExpr.from_hlil(hlilOp)
+        #node = None
     elif opvalue == 29: #ExternalPointer
         #external pointer, no documentation on this one VarDecl?
-        #node = astBinja.ConstantExpr.from_hlil(hlilOp)
-        node = None
+        node = astBinja.ConstantExpr.from_hlil(hlilOp)
+        #node = None
     elif opvalue == 30: #FloatConstant
         #float constant, no documentation on this one, maybe new thing
         node = astBinja.ConstantExpr.from_hlil(hlilOp)
@@ -304,13 +342,29 @@ def astNodeFromHLIL(hlilOp):
         node = astBinja.ConstantExpr.from_hlil(hlilOp)
     elif opvalue == 120: #VarPhi
         #A PHI represents the combination of several prior versions of a variable when differnet basic blocks coalesce into a single destination 
-        # and it's unknown which path was taken.
-        node = astBinja.VarDecl.from_hlil(hlilOp)
+        # and it's unknown which path was taken.Treated as reference to declared variable
+        #variable reference, does that have a node?
+        variable = hlilOp.dest.var
+        bv = hlilOp.function.view
+        refID = variable.core_variable.identifier
+        dtype = typeConverter(variable.type,bv)
+        if type(dtype) == dt.FunctionType:
+            decl_type = 1
+        elif type(dtype) == dt.EnumType:
+            decl_type = 3
+        else:
+            decl_type = 2
+        #this should be already a ast node so this should work because all nodes should have the tudecl as the root
+        tudecl = parentNode.find_root_node()
+        node = astBinja.DeclRefExpr.from_hlil(hlilOp,tudecl,refID,decl_type)
     elif opvalue == 121: #MemPhi
         #A memory PHI represents memory modifications that could have occured down different source basic blocks similar to a VAR_PHI
-        node = None
+        #combination?
+        #compound statement for now see what breaks
+        node = astBinja.CompoundStmt.from_hlil(hlilOp)
     else:
-        print("temp")
+        #null node for unknown operation
+        node = astBinja.NullNode.from_hlil(hlilOp)
 
     return node
 
@@ -318,45 +372,106 @@ def recursiveTraversal(node, hlilOp):
     """
     Recursively traverse the HLIL tree to append nodes to the AST
     """
-    # Check if the node is a valid HLIL operation
-    # if type(hlilOp) == list:
-    #     if hlilOp == None or not hlilOp:
-    #         print('end node') 
-    #         return
-    #     elif hlilOp[0] == 'constant' or hlilOp== [] or hlilOp[0] == 'src':
-    #         print('end node')
-    #         return
-    # elif type(hlilOp) == int:
-    #     print('end node')
-    #     return
-    
-
+    parent = node
     #constants and variables/registers are the terminal nodes in the graph
     #per Binja Slack channel
-    if not isinstance(hlilOp, HighLevelILInstruction):
+    if isinstance(hlilOp, HighLevelILInstruction) or type(hlilOp) == list:
+       
+       #check against NOP and other non-operations in List
+        if type(hlilOp) == list:
+            if len(hlilOp) > 0:
+                hlilOp = hlilOp[0]
+            else:
+                node = astBinja.NullNode()
+                parent.add_child(node)
+                return
 
-        #need logic for constants and variables to create end nodes
-        print(hlilOp)
+        try:
+            node = astNodeFromHLIL(hlilOp, parent)
+            parent.add_child(node)
+        except:
+            print(hlilOp)
+
+        # Recursively traverse the operands
+        for operand in hlilOp.detailed_operands:
+            recursiveTraversal(node, operand[1])
         return
+    
+    else:
+        #need logic for constants and variables to create end nodes
+        #following literal types per word doc
+        #intLit, floatLit,charLit,stringLit
+        
+        if type(hlilOp) == int:
+            #int literal
+             # Get the number of bits required to represent the integer
+            bitLength = hlilOp.bit_length()
+            
+            # Map the bit length to the nearest standard size
+            if bitLength <= 8:
+                bitLength = 8
+            elif bitLength <= 16:
+                bitLength = 16
+            elif bitLength <= 32:
+                bitLength = 32
+            elif bitLength <= 64:
+                bitLength = 64
 
-    # # Print the operation name
-    #print('normal node')
-    print(hlilOp.ast)
+            byte_length = bitLength/8
 
-    # Recursively traverse the operands
-    for operand in hlilOp.detailed_operands:
-        recursiveTraversal(node, operand[1])
+            _builtin_uints_by_size = {
+                1: 'uchar',
+                2: 'ushort',
+                4: 'uint32',
+                8: 'uint64',
+                16: 'uint128',
+                # NOTE: these are simply because Ghidra generates them for "functions"
+                # like ZEXT, etc. and for that reason they can show up as temporary var
+                # types (as well as data types for AST nodes in expressions)
+                32: 'uint256',
+                64: 'uint512',
+            }
 
-    return
+            node = astBinja.IntegerLiteral(hlilOp, dt.BuiltinType.from_standard_name(_builtin_uints_by_size[byte_length]), parent.instr_addr)
+            parent.add_child(node)
+        elif type(hlilOp) == float:
+            #floats here are all 64 bit due to python rules?
+            node = astBinja.FloatingLiteral(hlilOp,"", dt.BuiltinType.from_standard_name('double'), parent.instr_addr)
+        else:
+            
+            if hlilOp:
+                #variable reference, does that have a node?
+                variable = hlilOp
+                bv = variable.function.view
+                refID = variable.core_variable.identifier
+                dtype = typeConverter(variable.type,bv)
+                if type(dtype) == dt.FunctionType:
+                    decl_type = 1
+                elif type(dtype) == dt.EnumType:
+                    decl_type = 3
+                else:
+                    decl_type = 2
+                #this should be already a ast node so this should work because all nodes should have the tudecl as the root
+                tudecl = parent.find_root_node()
+                node = astBinja.DeclRefExpr(tudecl,refID,decl_type,parent.instr_addr)
+                parent.add_child(node)
+            else:
+                node = astBinja.NullNode()
+                parent.add_child(node)
+
+        
+        return  
 
 def get_ast(bv):
     for func in bv.functions:
+        #print(func.name)
 
         
         #set up the ast builder
         #first in the translation unit declaration
         tu = astBinja.TranslationUnitDecl()
-
+        #this should get overwritten by hash of address to create unique id
+        valueOfID = 0
         
         #then the function declaration with translation unit as parent
         funcName = func.name
@@ -395,83 +510,126 @@ def get_ast(bv):
             #print(a)
             #print(a.detailed_operands)
             recursiveTraversal(funcBodyBase, a)
-            #print(a.instr.value.type)
-            #print(a.instr.value.operation.value)
-            #print(a.instr.value.operation)
-            #print(a.instr.value.operation.value)
-            #print(a.instr.value.operation.name)
-            #print(a.instr.value.operation.name == 'HLIL_CALL')
-            #print(a.instr.value.operation.name == 'HLIL_CALL_INDIRECT')
-            #instructionsDFS.append(a)
+            
             break
+            # if a.core_instr.operation == 27:
+            #     print(a)
+            #     print(a.detailed_operands)
+            #     print(a.value.value)
+            #     print()
+
+
+
+
+                # if type(a.var.type) == EnumerationType:
+                #     print(a.value)
+                #     print(a.value.value)
+                #     print(a.var.type.members[0].name)
+                #     print(a.detailed_operands)
+            
+            # if a.core_instr.operation == 20:
+            #     print(type(a.src.var.type))
+
+            #     if type(a.src.var.type) == PointerType:
+            #         print('yay')
+                
+                # try:
+                #     type1 = a.parent.vars_read[0].type
+                #     print(type1)
+                #     print(type(type1))
+                #     if type(type1) == NamedTypeReferenceType:
+                #         type1 = type1.type_id
+
+                #     if "struct" in type1 or "union" in type1:
+                #         print(type1)
+                #         print(a.detailed_operands)
+                #         return
+                # except:
+                #     print()
+                       
+
+                # print(a.parent.detailed_operands)
+                # print(a.parent.core_instr.operation)
+                
+                # print(a.detailed_operands)
+                # print(a.core_instr.operation)
+                # print(a.core_instr)
+                # print(a.vars_read)
+
+
+
+                # try:
+                #     print(a.src.var.type)
+                #     if type(a.src.var.type) == StructureType:
+                #         print(a.src.var.type)
+                # except:
+                #     #print(a.src.vars[0].type)
+                #     print()
+                # varAtAddr  = func.get_stack_vars_referenced_by_address_if_available(a.src.address+a.offset)
+                # if varAtAddr:
+                #     print(varAtAddr[0].type)
+                #print(varAtAddr.type)
+
+            #     variable = a.dest
+            #     refID = variable.core_variable.identifier
+            #     dtype = typeConverter(variable.type,bv)
+            #     if type(dtype) == dt.FunctionType:
+            #         decl_type = 1
+            #     elif type(dtype) == dt.EnumType:
+            #         decl_type = 3
+            #     else:
+            #         decl_type = 2
+
+            #     if decl_type == 3:
+            #         members = variable.type.members
+            #         print(members)
+            #         print(a.detailed_operands)
+            #         srcIntr = a.src 
+            #         print(srcIntr)
+            #         print(srcIntr.value.value)
+            #         print(type(srcIntr.value))
+            #         #maybeValue = func.get_reg_value_at(srcIntr.value)
+            #         #print(maybeValue)
+            #         print(srcIntr.detailed_operands)
+            #         print()
+                    # if srcIntr.dest.operation.value == 28: #HLIL_CONST_ptr
+                    #     #print(srcIntr.detailed_operands)
+                    #     print(srcIntr.dest.constant)
+            #print(a.instr.value.operation.name == 'HLIL_CALL')
+            # #print(a.instr.value.operation.name == 'HLIL_CALL_INDIRECT')
+            # #instructionsDFS.append(a)
+            # break
         
-        # a = instructionsDFS[0]
-        # print(a.ast)
-        # print(a.operands)
-        # print(a.detailed_operands)
-        # print(a.operands[0])
-        # print(instructionsDFS[2].ast)
-        #print(a.core_instr)
-        # print(a.core_instr.operation.value) #can get intruction type and make a map of values to ghidra ast stuff
-        # print(type(str(a.core_instr.operation)))
-        # print(a.core_instr.operands)
-        # print(a.mlil)
-        # if a.mlil:
-        #     print(a.mlil.instr)
-        #     print(a.mlil)
-        #     print(a.mlil.instr.value.type)
-        # print(a.llil) #type info not in llil
-        # print(a.core_instr.operands)
-        print()
+        print(tu.to_dict())
+        #break
+        #print()
         #break
 
 
-        # for a in func.hlil.traverse(lambda x: x):
-        #     #print()
-        #     print(a.ast)
-        #     #print(a.operands)
-        #     #print(a.detailed_operands)
-        #     #print(a.core_instr)
-        #     #print(a.core_instr.operands)
-        #     #print()
-        #     #break
-        # print()
-        # for a in func.hlil.traverse(lambda x: x):
-        # #print()
-        # #print(a.ast)
-        # #print(a.operands)
-        #     print(a.detailed_operands)
-        # #print(a.core_instr)
-        # #print(a.core_instr.operands)
-        # #print()
-        # #break
-        # print()
-        # for a in func.hlil.traverse(lambda x: x):
-        # #print()
-        # # print(a.ast)
-        # #print(a.operands)
-        # # print(a.detailed_operands)
-        #     print(a.core_instr)
-        # # print(a.core_instr.operands)
-        # # print()
-        # #break
-        # print()
-        # for a in func.hlil.traverse(lambda x: x):
-        # #print()
-        # # print(a.ast)
-        # #print(a.operands)
-        # # print(a.detailed_operands)
-        # # print(a.core_instr)
-        # #print(a.core_instr.operands)
-        # # print()
-        # #break
-        #  print()
-        # #print(func.hlil)
-        #break
-       
+        
 
 if __name__ == '__main__':
     testBinary = '/home/logan/Dev/IntermediateDragon/activeExperiments/ghidraEnvVarTest/rundata/run1/0.libemotion.so.1.26/0.libemotion.so.1.26'
     bv = binaryninja.load(testBinary)
     get_ast(bv)
+    # flag = False
+    # for func in bv.functions:
+    #     for var in func.vars:
+    #         if type(var.type) == EnumerationType:
+    #             members = var.type.members
+    #             uses = func.hlil.get_var_uses(var)
+    #             if uses:
+    #                 print(uses)
+    #             for use in uses:
+    #                 print(use.core_instr)
+    #                 print(use.detailed_operands)
+    #                 print(use.value.value)
+    #                 print(members)
+
+    #             flag = True
+                #break
+        # if flag:
+        #     break
+
+       
     #missingInts()
