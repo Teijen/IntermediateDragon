@@ -464,7 +464,7 @@ def recursiveTraversal(node, hlilOp):
 
 def get_ast(bv):
     for func in bv.functions:
-        #print(func.name)
+        print(func.name)
 
         
         #set up the ast builder
@@ -512,94 +512,7 @@ def get_ast(bv):
             recursiveTraversal(funcBodyBase, a)
             
             break
-            # if a.core_instr.operation == 27:
-            #     print(a)
-            #     print(a.detailed_operands)
-            #     print(a.value.value)
-            #     print()
 
-
-
-
-                # if type(a.var.type) == EnumerationType:
-                #     print(a.value)
-                #     print(a.value.value)
-                #     print(a.var.type.members[0].name)
-                #     print(a.detailed_operands)
-            
-            # if a.core_instr.operation == 20:
-            #     print(type(a.src.var.type))
-
-            #     if type(a.src.var.type) == PointerType:
-            #         print('yay')
-                
-                # try:
-                #     type1 = a.parent.vars_read[0].type
-                #     print(type1)
-                #     print(type(type1))
-                #     if type(type1) == NamedTypeReferenceType:
-                #         type1 = type1.type_id
-
-                #     if "struct" in type1 or "union" in type1:
-                #         print(type1)
-                #         print(a.detailed_operands)
-                #         return
-                # except:
-                #     print()
-                       
-
-                # print(a.parent.detailed_operands)
-                # print(a.parent.core_instr.operation)
-                
-                # print(a.detailed_operands)
-                # print(a.core_instr.operation)
-                # print(a.core_instr)
-                # print(a.vars_read)
-
-
-
-                # try:
-                #     print(a.src.var.type)
-                #     if type(a.src.var.type) == StructureType:
-                #         print(a.src.var.type)
-                # except:
-                #     #print(a.src.vars[0].type)
-                #     print()
-                # varAtAddr  = func.get_stack_vars_referenced_by_address_if_available(a.src.address+a.offset)
-                # if varAtAddr:
-                #     print(varAtAddr[0].type)
-                #print(varAtAddr.type)
-
-            #     variable = a.dest
-            #     refID = variable.core_variable.identifier
-            #     dtype = typeConverter(variable.type,bv)
-            #     if type(dtype) == dt.FunctionType:
-            #         decl_type = 1
-            #     elif type(dtype) == dt.EnumType:
-            #         decl_type = 3
-            #     else:
-            #         decl_type = 2
-
-            #     if decl_type == 3:
-            #         members = variable.type.members
-            #         print(members)
-            #         print(a.detailed_operands)
-            #         srcIntr = a.src 
-            #         print(srcIntr)
-            #         print(srcIntr.value.value)
-            #         print(type(srcIntr.value))
-            #         #maybeValue = func.get_reg_value_at(srcIntr.value)
-            #         #print(maybeValue)
-            #         print(srcIntr.detailed_operands)
-            #         print()
-                    # if srcIntr.dest.operation.value == 28: #HLIL_CONST_ptr
-                    #     #print(srcIntr.detailed_operands)
-                    #     print(srcIntr.dest.constant)
-            #print(a.instr.value.operation.name == 'HLIL_CALL')
-            # #print(a.instr.value.operation.name == 'HLIL_CALL_INDIRECT')
-            # #instructionsDFS.append(a)
-            # break
-        
         print(tu.to_dict())
         #break
         #print()
