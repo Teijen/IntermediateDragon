@@ -12,3 +12,45 @@ need to run ghidra server install binary, add user via admin binary. Make sure P
 
 /run1.1.taxonomy.so./0.taxonomy
 /run1.1.taxonomy.so./0.taxonomy
+
+
+
+First Pass Error - Everything breaks during extract_debuginfo_labels() step. This is after I build AST, 
+so something about how I build it must be wrong.
+
+Traceback (most recent call last):
+  File "/home/logan/Dev/IntermediateDragon/wildebeest/wildebeest/experimentalgorithm.py", line 209, in execute_from
+    step_output = step.process(run, params, run.outputs)
+  File "/home/logan/Dev/IntermediateDragon/datatype-recovery-experiments/datatype_recovery/experiments/basic_dataset.py", line 675, in do_extract_debuginfo_labels
+    extract_data_tables(fb)
+  File "/home/logan/Dev/IntermediateDragon/datatype-recovery-experiments/datatype_recovery/experiments/basic_dataset.py", line 456, in extract_data_tables
+    debug_funcdata = extract_funcdata_from_ast_set(debug_funcs, fb.debug_binary_file, is_debug=True)
+  File "/home/logan/Dev/IntermediateDragon/datatype-recovery-experiments/datatype_recovery/experiments/basic_dataset.py", line 424, in extract_funcdata_from_ast_set
+    fdatas.append(extract_funcdata_from_ast(ast, ast_json))
+  File "/home/logan/Dev/IntermediateDragon/datatype-recovery-experiments/datatype_recovery/experiments/basic_dataset.py", line 272, in extract_funcdata_from_ast
+    fd.params_df = build_ast_func_params_table(fdecl, fdecl.params, fdecl.return_dtype)
+  File "/home/logan/Dev/IntermediateDragon/datatype-recovery-experiments/datatype_recovery/experiments/basic_dataset.py", line 285, in build_ast_func_params_table
+    'Signature': [build_var_ast_signature(fdecl, p.name) for p in params],
+  File "/home/logan/Dev/IntermediateDragon/datatype-recovery-experiments/datatype_recovery/experiments/basic_dataset.py", line 285, in <listcomp>
+    'Signature': [build_var_ast_signature(fdecl, p.name) for p in params],
+  File "/home/logan/Dev/IntermediateDragon/astlib/src/astlib/find_all_references.py", line 99, in build_var_ast_signature
+    var_refs = FindAllVarRefs(varname).visit(fdecl.func_body)
+  File "/home/logan/Dev/IntermediateDragon/astlib/src/astlib/astvisitor.py", line 72, in visit
+    res = self.visit(child)
+  File "/home/logan/Dev/IntermediateDragon/astlib/src/astlib/astvisitor.py", line 67, in visit
+    res = visit_method(node)
+  File "/home/logan/Dev/IntermediateDragon/astlib/src/astlib/find_all_references.py", line 12, in visit_DeclRefExpr
+    if refexpr.referencedDecl.name == self.varname:
+  File "/home/logan/Dev/IntermediateDragon/astlib/src/astlib/ast.py", line 283, in referencedDecl
+    return self.tudecl._decls_by_id[self.referenced_id]
+KeyError: 576460752286646280
+Run '-1.taxonomy.so' failed during the 'extract_debuginfo_labels' step:
+	'576460752286646280'
+Traceback (most recent call last):
+  File "/home/logan/Dev/IntermediateDragon/wildebeest/wildebeest/jobrunner.py", line 276, in run
+    self.task.execute(from_step, to_step)
+  File "/home/logan/Dev/IntermediateDragon/wildebeest/wildebeest/jobrunner.py", line 78, in execute
+    self._execute_run(from_step, to_step)
+  File "/home/logan/Dev/IntermediateDragon/wildebeest/wildebeest/jobrunner.py", line 70, in _execute_run
+    raise Exception(self.run.error_msg)
+Exception: 576460752286646280

@@ -25,7 +25,8 @@
             "name": "MySubProcess",
             "type": "debugpy",
             "request": "attach",
-            "processId": "${command:pickProcess}"
+            "processId": "${command:pickProcess}",
+            "logToFile": true
         }
     ]
 }

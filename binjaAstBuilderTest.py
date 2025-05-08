@@ -462,6 +462,9 @@ def recursiveTraversal(node, hlilOp):
         
         return  
 
+
+
+
 def get_ast(bv):
     for func in bv.functions:
         print(func.name)
@@ -507,13 +510,18 @@ def get_ast(bv):
         #only need root node to start but traverse is a generator
 
         for a in func.hlil.traverse(lambda x: x):
-            #print(a)
-            #print(a.detailed_operands)
-            recursiveTraversal(funcBodyBase, a)
-            
-            break
 
-        print(tu.to_dict())
+
+            if a.operation.value == 19:
+                #skip the block node
+                
+                print(a)
+                print(a.detailed_operands)
+            #recursiveTraversal(funcBodyBase, a)
+            
+            #break
+
+        #print(tu.to_dict())
         #break
         #print()
         #break

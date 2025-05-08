@@ -13,3 +13,6 @@
 [submodule "dirty"]
 	path = dirty
 	url = https://github.com/Teijen/DIRTY.git
+[submodule "dragon"]
+	path = dragon
+	url = https://github.com/Teijen/dragon.git
