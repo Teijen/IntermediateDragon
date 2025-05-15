@@ -2,4 +2,6 @@ interDrag/*
 ghidra_10.3_DEV/*
 activeExperiments/*
 dragonBinaries/*
+#ignoring derived training data directories from the intial repo
+#and my generated ILR ones
 dragonData/*
