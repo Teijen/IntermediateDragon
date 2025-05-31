@@ -5,3 +5,4 @@ dragonBinaries/*
 #ignoring derived training data directories from the intial repo
 #and my generated ILR ones
 dragonData/*
+dragonTraining/*
