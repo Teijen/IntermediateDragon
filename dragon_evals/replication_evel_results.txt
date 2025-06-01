@@ -1,0 +1,556 @@
+────────────────────────────────────────────── Eval replicate_tydamin_ep35.pt on TyDAmin Test Split ───────────────────────────────────────────────
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/tydamin_sample_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/tydamin_sample_5hops
+test_split: True
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ─────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+Using test split from dataset /home/logan/Dev/IntermediateDragon/dragonData/tydamin_sample_5hops
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 182/182 [13:42<00:00,  4.52s/it]
+Dragon Runtime: 0:13:49
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 185,716)
+Accuracy: 84.41%
+tydamin_sample_5hops Runtime: 0:14:37
+───────────────────────────────────────────── Eval replicate_tydamin_ep35.pt on Coreutils Benchmarks ──────────────────────────────────────────────
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O0_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_x64_O0_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ─────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 55/55 [03:43<00:00,  4.07s/it]
+Dragon Runtime: 0:03:45
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 55,613)
+Accuracy: 74.92%
+coreutils_x64_O0_5hops Runtime: 0:03:49
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x86_O1_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_x86_O1_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ─────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 46/46 [03:41<00:00,  4.81s/it]
+Dragon Runtime: 0:03:43
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 46,966)
+Accuracy: 51.75%
+coreutils_x86_O1_5hops Runtime: 0:03:46
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O3_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_x64_O3_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ─────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 61/61 [05:03<00:00,  4.97s/it]
+Dragon Runtime: 0:05:05
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 62,000)
+Accuracy: 73.24%
+coreutils_x64_O3_5hops Runtime: 0:05:09
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O3_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_arm64_O3_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 116/116 [10:39<00:00,  5.51s/it]
+Dragon Runtime: 0:10:43
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 118,272)
+Accuracy: 84.91%
+coreutils_arm64_O3_5hops Runtime: 0:10:50
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x86_O0_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_x86_O0_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 58/58 [03:21<00:00,  3.48s/it]
+Dragon Runtime: 0:03:23
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 58,662)
+Accuracy: 48.71%
+coreutils_x86_O0_5hops Runtime: 0:03:27
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_armhf_O3_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_armhf_O3_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 117/117 [11:58<00:00,  6.14s/it]
+Dragon Runtime: 0:12:02
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 119,105)
+Accuracy: 86.91%
+coreutils_armhf_O3_5hops Runtime: 0:12:09
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O2_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_x64_O2_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 45/45 [03:43<00:00,  4.96s/it]
+Dragon Runtime: 0:03:45
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 45,954)
+Accuracy: 71.42%
+coreutils_x64_O2_5hops Runtime: 0:03:49
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x86_O3_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_x86_O3_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 72/72 [04:55<00:00,  4.10s/it]
+Dragon Runtime: 0:04:57
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 73,242)
+Accuracy: 54.75%
+coreutils_x86_O3_5hops Runtime: 0:05:02
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O0_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_arm64_O0_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 78/78 [05:07<00:00,  3.95s/it]
+Dragon Runtime: 0:05:10
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 79,462)
+Accuracy: 89.30%
+coreutils_arm64_O0_5hops Runtime: 0:05:15
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x86_O2_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_x86_O2_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 51/51 [03:38<00:00,  4.28s/it]
+Dragon Runtime: 0:03:39
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 51,738)
+Accuracy: 52.80%
+coreutils_x86_O2_5hops Runtime: 0:03:44
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_armhf_O1_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_armhf_O1_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 82/82 [08:12<00:00,  6.01s/it]
+Dragon Runtime: 0:08:16
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 83,122)
+Accuracy: 84.18%
+coreutils_armhf_O1_5hops Runtime: 0:08:21
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O1_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_arm64_O1_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 67/67 [05:40<00:00,  5.09s/it]
+Dragon Runtime: 0:05:43
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 68,528)
+Accuracy: 86.31%
+coreutils_arm64_O1_5hops Runtime: 0:05:48
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_armhf_O2_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_armhf_O2_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 89/89 [09:24<00:00,  6.34s/it]
+Dragon Runtime: 0:09:27
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 90,912)
+Accuracy: 86.85%
+coreutils_armhf_O2_5hops Runtime: 0:09:33
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O2_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_arm64_O2_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 95/95 [07:25<00:00,  4.69s/it]
+Dragon Runtime: 0:07:28
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 96,370)
+Accuracy: 83.85%
+coreutils_arm64_O2_5hops Runtime: 0:07:34
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_armhf_O0_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_armhf_O0_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 96/96 [07:31<00:00,  4.70s/it]
+Dragon Runtime: 0:07:34
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 97,966)
+Accuracy: 85.81%
+coreutils_armhf_O0_5hops Runtime: 0:07:40
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O1_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/coreutils_x64_O1_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 43/43 [03:41<00:00,  5.16s/it]
+Dragon Runtime: 0:03:43
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 43,652)
+Accuracy: 72.40%
+coreutils_x64_O1_5hops Runtime: 0:03:47
+───────────────────────────────────────────────────────────────── Eval replicate_tydamin_ep35.pt on Complex Benchmark ─────────────────────────────────────────────────────────────────
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/complex_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/complex_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────── Running dragon model replicate_tydamin_ep35.pt (offline) ───────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 92/92 [07:58<00:00,  5.20s/it]
+Dragon Runtime: 0:08:02
+DRAGON replicate_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 94,203)
+Accuracy: 66.47%
+complex_5hops Runtime: 0:08:08
+──────────────────────────────────────────────────────────────── Eval replicate_resym_train_ep35.pt on ReSym Benchmark ────────────────────────────────────────────────────────────────
+Arguments ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/resym_test_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/replicate_resym_train_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/dragonData/resym_test_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────────────────────── Running dragon model replicate_resym_train_ep35.pt (offline) ─────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [04:58<00:00,  3.73s/it]
+Dragon Runtime: 0:05:01
+DRAGON replicate_resym_train_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 81,303)
+Accuracy: 86.87%
+resym_test_5hops Runtime: 0:05:07
