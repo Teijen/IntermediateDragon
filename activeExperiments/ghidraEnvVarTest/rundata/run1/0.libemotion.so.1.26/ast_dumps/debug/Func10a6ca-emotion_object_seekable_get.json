@@ -1,0 +1,167 @@
+{
+    "kind": "TranslationUnitDecl",
+    "inner": [
+        {
+            "kind": "FunctionDecl",
+            "inner": [],
+            "instr_addr": 0,
+            "id": 4,
+            "name": "efl_playable_seekable_get",
+            "address": 1077872,
+            "is_intrinsic": false,
+            "return_dtype": {
+                "kind": "BuiltinType",
+                "name": "undefined",
+                "is_fp": false,
+                "signed": false,
+                "size": 1,
+                "boolean": false
+            }
+        },
+        {
+            "kind": "FunctionDecl",
+            "inner": [
+                {
+                    "kind": "ParmVarDecl",
+                    "inner": [],
+                    "instr_addr": 0,
+                    "id": 1,
+                    "name": "obj",
+                    "dtype": {
+                        "kind": "PointerType",
+                        "size": 8,
+                        "inner": [
+                            {
+                                "kind": "StructType",
+                                "sid": 360287970189640261,
+                                "name": "Evas_Object"
+                            }
+                        ]
+                    },
+                    "loc_space": "register",
+                    "loc_off": 56,
+                    "loc_reg": "rdi"
+                },
+                {
+                    "kind": "CompoundStmt",
+                    "inner": [
+                        {
+                            "kind": "DeclStmt",
+                            "inner": [
+                                {
+                                    "kind": "VarDecl",
+                                    "inner": [],
+                                    "instr_addr": 0,
+                                    "id": 2,
+                                    "name": "EVar1",
+                                    "dtype": {
+                                        "kind": "BuiltinType",
+                                        "name": "Eina_Bool",
+                                        "is_fp": false,
+                                        "signed": false,
+                                        "size": 1,
+                                        "boolean": false
+                                    },
+                                    "loc_space": "register",
+                                    "loc_off": 0,
+                                    "loc_reg": "al"
+                                }
+                            ],
+                            "instr_addr": 0
+                        },
+                        {
+                            "kind": "DeclStmt",
+                            "inner": [
+                                {
+                                    "kind": "VarDecl",
+                                    "inner": [],
+                                    "instr_addr": 0,
+                                    "id": 3,
+                                    "name": "obj_local",
+                                    "dtype": {
+                                        "kind": "PointerType",
+                                        "size": 8,
+                                        "inner": [
+                                            {
+                                                "kind": "StructType",
+                                                "sid": 360287970189640261,
+                                                "name": "Evas_Object"
+                                            }
+                                        ]
+                                    },
+                                    "loc_space": "stack",
+                                    "loc_off": -16,
+                                    "loc_reg": ""
+                                }
+                            ],
+                            "instr_addr": 0
+                        },
+                        {
+                            "kind": "BinaryOperator",
+                            "inner": [
+                                {
+                                    "kind": "DeclRefExpr",
+                                    "inner": [],
+                                    "instr_addr": 1091293,
+                                    "type": 2,
+                                    "referencedDecl_id": 2
+                                },
+                                {
+                                    "kind": "CallExpr",
+                                    "inner": [
+                                        {
+                                            "kind": "DeclRefExpr",
+                                            "inner": [],
+                                            "instr_addr": 1091293,
+                                            "type": 1,
+                                            "referencedDecl_id": 4
+                                        },
+                                        {
+                                            "kind": "DeclRefExpr",
+                                            "inner": [],
+                                            "instr_addr": 1091293,
+                                            "type": 2,
+                                            "referencedDecl_id": 1
+                                        }
+                                    ],
+                                    "instr_addr": 0
+                                }
+                            ],
+                            "instr_addr": 1091293,
+                            "opcode": "="
+                        },
+                        {
+                            "kind": "ReturnStmt",
+                            "inner": [
+                                {
+                                    "kind": "DeclRefExpr",
+                                    "inner": [],
+                                    "instr_addr": 1091299,
+                                    "type": 2,
+                                    "referencedDecl_id": 2
+                                }
+                            ],
+                            "instr_addr": 1091299
+                        }
+                    ],
+                    "instr_addr": 0
+                }
+            ],
+            "instr_addr": 0,
+            "id": 0,
+            "name": "emotion_object_seekable_get",
+            "address": 1091274,
+            "is_intrinsic": false,
+            "return_dtype": {
+                "kind": "BuiltinType",
+                "name": "Eina_Bool",
+                "is_fp": false,
+                "signed": false,
+                "size": 1,
+                "boolean": false
+            }
+        }
+    ],
+    "instr_addr": 0,
+    "logfile": ""
+}

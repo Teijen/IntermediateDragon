@@ -1,0 +1,355 @@
+{
+    "kind": "TranslationUnitDecl",
+    "inner": [
+        {
+            "kind": "FunctionDecl",
+            "inner": [
+                {
+                    "kind": "ParmVarDecl",
+                    "inner": [],
+                    "instr_addr": 0,
+                    "id": 1,
+                    "name": "obj",
+                    "dtype": {
+                        "kind": "PointerType",
+                        "size": 8,
+                        "inner": [
+                            {
+                                "kind": "StructType",
+                                "sid": 360287970189640096,
+                                "name": "Eo"
+                            }
+                        ]
+                    },
+                    "loc_space": "register",
+                    "loc_off": 56,
+                    "loc_reg": "rdi"
+                },
+                {
+                    "kind": "ParmVarDecl",
+                    "inner": [],
+                    "instr_addr": 0,
+                    "id": 2,
+                    "name": "sd",
+                    "dtype": {
+                        "kind": "PointerType",
+                        "size": 8,
+                        "inner": [
+                            {
+                                "kind": "StructType",
+                                "sid": 360287970189640649,
+                                "name": "Efl_Canvas_Video_Data"
+                            }
+                        ]
+                    },
+                    "loc_space": "register",
+                    "loc_off": 48,
+                    "loc_reg": "rsi"
+                },
+                {
+                    "kind": "CompoundStmt",
+                    "inner": [
+                        {
+                            "kind": "DeclStmt",
+                            "inner": [
+                                {
+                                    "kind": "VarDecl",
+                                    "inner": [],
+                                    "instr_addr": 0,
+                                    "id": 3,
+                                    "name": "bVar1",
+                                    "dtype": {
+                                        "kind": "BuiltinType",
+                                        "name": "byte",
+                                        "is_fp": false,
+                                        "signed": false,
+                                        "size": 1,
+                                        "boolean": false
+                                    },
+                                    "loc_space": "register",
+                                    "loc_off": 0,
+                                    "loc_reg": "al"
+                                }
+                            ],
+                            "instr_addr": 0
+                        },
+                        {
+                            "kind": "DeclStmt",
+                            "inner": [
+                                {
+                                    "kind": "VarDecl",
+                                    "inner": [],
+                                    "instr_addr": 0,
+                                    "id": 4,
+                                    "name": "sd_local",
+                                    "dtype": {
+                                        "kind": "PointerType",
+                                        "size": 8,
+                                        "inner": [
+                                            {
+                                                "kind": "StructType",
+                                                "sid": 360287970189640649,
+                                                "name": "Efl_Canvas_Video_Data"
+                                            }
+                                        ]
+                                    },
+                                    "loc_space": "stack",
+                                    "loc_off": -24,
+                                    "loc_reg": ""
+                                }
+                            ],
+                            "instr_addr": 0
+                        },
+                        {
+                            "kind": "DeclStmt",
+                            "inner": [
+                                {
+                                    "kind": "VarDecl",
+                                    "inner": [],
+                                    "instr_addr": 0,
+                                    "id": 5,
+                                    "name": "obj_local",
+                                    "dtype": {
+                                        "kind": "PointerType",
+                                        "size": 8,
+                                        "inner": [
+                                            {
+                                                "kind": "StructType",
+                                                "sid": 360287970189640096,
+                                                "name": "Eo"
+                                            }
+                                        ]
+                                    },
+                                    "loc_space": "stack",
+                                    "loc_off": -16,
+                                    "loc_reg": ""
+                                }
+                            ],
+                            "instr_addr": 0
+                        },
+                        {
+                            "kind": "IfStmt",
+                            "inner": [
+                                {
+                                    "kind": "BinaryOperator",
+                                    "inner": [
+                                        {
+                                            "kind": "MemberExpr",
+                                            "inner": [
+                                                {
+                                                    "kind": "DeclRefExpr",
+                                                    "inner": [],
+                                                    "instr_addr": 1090492,
+                                                    "type": 2,
+                                                    "referencedDecl_id": 2
+                                                }
+                                            ],
+                                            "instr_addr": 1090492,
+                                            "name": "engine_instance",
+                                            "sid": 360287970189640649,
+                                            "offset": 0,
+                                            "isArrow": true
+                                        },
+                                        {
+                                            "kind": "CStyleCastExpr",
+                                            "inner": [
+                                                {
+                                                    "kind": "IntegerLiteral",
+                                                    "inner": [],
+                                                    "instr_addr": 1090495,
+                                                    "value": 0,
+                                                    "dtype": {
+                                                        "kind": "PointerType",
+                                                        "size": 8,
+                                                        "inner": [
+                                                            {
+                                                                "kind": "StructType",
+                                                                "sid": 360287970189640648,
+                                                                "name": "Emotion_Engine_Instance"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "instr_addr": 1090495,
+                                            "dtype": {
+                                                "kind": "PointerType",
+                                                "size": 8,
+                                                "inner": [
+                                                    {
+                                                        "kind": "StructType",
+                                                        "sid": 360287970189640648,
+                                                        "name": "Emotion_Engine_Instance"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "instr_addr": 1090495,
+                                    "opcode": "=="
+                                },
+                                {
+                                    "kind": "CompoundStmt",
+                                    "inner": [
+                                        {
+                                            "kind": "BinaryOperator",
+                                            "inner": [
+                                                {
+                                                    "kind": "DeclRefExpr",
+                                                    "inner": [],
+                                                    "instr_addr": 1090500,
+                                                    "type": 2,
+                                                    "referencedDecl_id": 3
+                                                },
+                                                {
+                                                    "kind": "IntegerLiteral",
+                                                    "inner": [],
+                                                    "instr_addr": 1090500,
+                                                    "value": 0,
+                                                    "dtype": {
+                                                        "kind": "BuiltinType",
+                                                        "name": "byte",
+                                                        "is_fp": false,
+                                                        "signed": false,
+                                                        "size": 1,
+                                                        "boolean": false
+                                                    }
+                                                }
+                                            ],
+                                            "instr_addr": 1090500,
+                                            "opcode": "="
+                                        }
+                                    ],
+                                    "instr_addr": 0
+                                },
+                                {
+                                    "kind": "CompoundStmt",
+                                    "inner": [
+                                        {
+                                            "kind": "BinaryOperator",
+                                            "inner": [
+                                                {
+                                                    "kind": "DeclRefExpr",
+                                                    "inner": [],
+                                                    "instr_addr": 1090520,
+                                                    "type": 2,
+                                                    "referencedDecl_id": 3
+                                                },
+                                                {
+                                                    "kind": "BinaryOperator",
+                                                    "inner": [
+                                                        {
+                                                            "kind": "BinaryOperator",
+                                                            "inner": [
+                                                                {
+                                                                    "kind": "CStyleCastExpr",
+                                                                    "inner": [
+                                                                        {
+                                                                            "kind": "MemberExpr",
+                                                                            "inner": [
+                                                                                {
+                                                                                    "kind": "DeclRefExpr",
+                                                                                    "inner": [],
+                                                                                    "instr_addr": 1090511,
+                                                                                    "type": 2,
+                                                                                    "referencedDecl_id": 2
+                                                                                }
+                                                                            ],
+                                                                            "instr_addr": 1090511,
+                                                                            "name": "field_0xd8",
+                                                                            "sid": 360287970189640649,
+                                                                            "offset": 216,
+                                                                            "isArrow": true
+                                                                        }
+                                                                    ],
+                                                                    "instr_addr": 1090518,
+                                                                    "dtype": {
+                                                                        "kind": "BuiltinType",
+                                                                        "name": "byte",
+                                                                        "is_fp": false,
+                                                                        "signed": false,
+                                                                        "size": 1,
+                                                                        "boolean": false
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "kind": "IntegerLiteral",
+                                                                    "inner": [],
+                                                                    "instr_addr": 1090518,
+                                                                    "value": 1,
+                                                                    "dtype": {
+                                                                        "kind": "BuiltinType",
+                                                                        "name": "int",
+                                                                        "is_fp": false,
+                                                                        "signed": true,
+                                                                        "size": 4,
+                                                                        "boolean": false
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "instr_addr": 1090518,
+                                                            "opcode": ">>"
+                                                        },
+                                                        {
+                                                            "kind": "IntegerLiteral",
+                                                            "inner": [],
+                                                            "instr_addr": 1090520,
+                                                            "value": 1,
+                                                            "dtype": {
+                                                                "kind": "BuiltinType",
+                                                                "name": "byte",
+                                                                "is_fp": false,
+                                                                "signed": false,
+                                                                "size": 1,
+                                                                "boolean": false
+                                                            }
+                                                        }
+                                                    ],
+                                                    "instr_addr": 1090520,
+                                                    "opcode": "&"
+                                                }
+                                            ],
+                                            "instr_addr": 1090520,
+                                            "opcode": "="
+                                        }
+                                    ],
+                                    "instr_addr": 0
+                                }
+                            ],
+                            "instr_addr": 94401116883508
+                        },
+                        {
+                            "kind": "ReturnStmt",
+                            "inner": [
+                                {
+                                    "kind": "DeclRefExpr",
+                                    "inner": [],
+                                    "instr_addr": 1090524,
+                                    "type": 2,
+                                    "referencedDecl_id": 3
+                                }
+                            ],
+                            "instr_addr": 1090524
+                        }
+                    ],
+                    "instr_addr": 0
+                }
+            ],
+            "instr_addr": 0,
+            "id": 0,
+            "name": "_efl_canvas_video_efl_player_playing_get",
+            "address": 1090476,
+            "is_intrinsic": false,
+            "return_dtype": {
+                "kind": "BuiltinType",
+                "name": "Eina_Bool",
+                "is_fp": false,
+                "signed": false,
+                "size": 1,
+                "boolean": false
+            }
+        }
+    ],
+    "instr_addr": 0,
+    "logfile": ""
+}
