@@ -1,0 +1,421 @@
+logan@Origin-LoganC:~/Dev/IntermediateDragon$ ./dragon/scripts/run_dragon_benchmarks.py 
+───────────────────────────────────────────────────────────────────────────────────────── Eval binja_tydamin_ep35.pt on TyDAmin Test Split ──────────────────────────────────────────────────────────────────────────────────────────
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/tydamin_sample_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/tydamin_sample_5hops
+test_split: True
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+/home/logan/Dev/IntermediateDragon/datatype-recovery-experiments/datatype_recovery/experiments/eval_simple_types.py:344: DtypeWarning: Columns (2) have mixed types. Specify dtype option on import or set low_memory=False.
+  var_df = pd.read_csv(var_csv).rename({
+─────────────────────────────────────────────────────────────────────────────────────── Running dragon model binja_tydamin_ep35.pt (offline) ────────────────────────────────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+Using test split from dataset /home/logan/Dev/IntermediateDragon/binjaDatasets/tydamin_sample_5hops
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 29/29 [00:23<00:00,  1.21it/s]
+Dragon Runtime: 0:00:24
+DRAGON binja_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 19,323)
+Accuracy: 99.87%
+tydamin_sample_5hops Runtime: 0:00:35
+──────────────────────────────────────────────────────────────────────────────────────── Eval binja_tydamin_ep35.pt on Coreutils Benchmarks ─────────────────────────────────────────────────────────────────────────────────────────
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O1_bench_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/coreutils_x64_O1_bench_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────── Running dragon model binja_tydamin_ep35.pt (offline) ────────────────────────────────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 12/12 [00:09<00:00,  1.27it/s]
+Dragon Runtime: 0:00:09
+DRAGON binja_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 11,314)
+Accuracy: 99.98%
+coreutils_x64_O1_bench_5hops Runtime: 0:00:12
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O2_bench_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/coreutils_x64_O2_bench_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────── Running dragon model binja_tydamin_ep35.pt (offline) ────────────────────────────────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:08<00:00,  1.06it/s]
+Dragon Runtime: 0:00:08
+DRAGON binja_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 9,000)
+Accuracy: 99.97%
+coreutils_x64_O2_bench_5hops Runtime: 0:00:11
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O0_bench_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/coreutils_x64_O0_bench_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────── Running dragon model binja_tydamin_ep35.pt (offline) ────────────────────────────────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 17/17 [00:16<00:00,  1.01it/s]
+Dragon Runtime: 0:00:17
+DRAGON binja_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 16,737)
+Accuracy: 99.86%
+coreutils_x64_O0_bench_5hops Runtime: 0:00:19
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O1_bench_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/coreutils_arm64_O1_bench_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────── Running dragon model binja_tydamin_ep35.pt (offline) ────────────────────────────────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:09<00:00,  1.01it/s]
+Dragon Runtime: 0:00:10
+DRAGON binja_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 10,026)
+Accuracy: 99.99%
+coreutils_arm64_O1_bench_5hops Runtime: 0:00:12
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O3_bench_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/coreutils_x64_O3_bench_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────── Running dragon model binja_tydamin_ep35.pt (offline) ────────────────────────────────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11/11 [00:09<00:00,  1.17it/s]
+Dragon Runtime: 0:00:09
+DRAGON binja_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 10,615)
+Accuracy: 99.88%
+coreutils_x64_O3_bench_5hops Runtime: 0:00:12
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O0_bench_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/coreutils_arm64_O0_bench_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────── Running dragon model binja_tydamin_ep35.pt (offline) ────────────────────────────────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:17<00:00,  1.07s/it]
+Dragon Runtime: 0:00:17
+DRAGON binja_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 16,290)
+Accuracy: 99.76%
+coreutils_arm64_O0_bench_5hops Runtime: 0:00:20
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O3_bench_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/coreutils_arm64_O3_bench_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────── Running dragon model binja_tydamin_ep35.pt (offline) ────────────────────────────────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 11/11 [00:09<00:00,  1.13it/s]
+Dragon Runtime: 0:00:10
+DRAGON binja_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 10,426)
+Accuracy: 99.85%
+coreutils_arm64_O3_bench_5hops Runtime: 0:00:12
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O2_bench_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/coreutils_arm64_O2_bench_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────── Running dragon model binja_tydamin_ep35.pt (offline) ────────────────────────────────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:09<00:00,  1.10it/s]
+Dragon Runtime: 0:00:09
+DRAGON binja_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 9,277)
+Accuracy: 100.00%
+coreutils_arm64_O2_bench_5hops Runtime: 0:00:11
+────────────────────────────────────────────────────────────────────────────────────────── Eval binja_tydamin_ep35.pt on Complex Benchmark ──────────────────────────────────────────────────────────────────────────────────────────
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/complex_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/complex_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Traceback (most recent call last):
+  File "/home/logan/Dev/IntermediateDragon/interDrag/bin/eval_simple_types", line 8, in <module>
+    sys.exit(main())
+  File "/home/logan/Dev/IntermediateDragon/datatype-recovery-experiments/datatype_recovery/experiments/eval_simple_types.py", line 438, in main
+    var_df = convert_vardf_to_debugdf(args.dataset)
+  File "/home/logan/Dev/IntermediateDragon/datatype-recovery-experiments/datatype_recovery/experiments/eval_simple_types.py", line 344, in convert_vardf_to_debugdf
+    var_df = pd.read_csv(var_csv).rename({
+  File "/home/logan/Dev/IntermediateDragon/interDrag/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/logan/Dev/IntermediateDragon/interDrag/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/logan/Dev/IntermediateDragon/interDrag/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/logan/Dev/IntermediateDragon/interDrag/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/logan/Dev/IntermediateDragon/interDrag/lib/python3.10/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/home/logan/Dev/IntermediateDragon/binjaDatasets/complex_5hops/raw/variables.csv'
+complex_5hops Runtime: 0:00:01
+───────────────────────────────────────────────────────────────────────────────────────── Eval binja_resym_train_ep35.pt on ReSym Benchmark ─────────────────────────────────────────────────────────────────────────────────────────
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/resym_test_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_resym_train_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/resym_test_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Traceback (most recent call last):
+  File "/home/logan/Dev/IntermediateDragon/interDrag/bin/eval_simple_types", line 8, in <module>
+    sys.exit(main())
+  File "/home/logan/Dev/IntermediateDragon/datatype-recovery-experiments/datatype_recovery/experiments/eval_simple_types.py", line 438, in main
+    var_df = convert_vardf_to_debugdf(args.dataset)
+  File "/home/logan/Dev/IntermediateDragon/datatype-recovery-experiments/datatype_recovery/experiments/eval_simple_types.py", line 344, in convert_vardf_to_debugdf
+    var_df = pd.read_csv(var_csv).rename({
+  File "/home/logan/Dev/IntermediateDragon/interDrag/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/logan/Dev/IntermediateDragon/interDrag/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/logan/Dev/IntermediateDragon/interDrag/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/logan/Dev/IntermediateDragon/interDrag/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/logan/Dev/IntermediateDragon/interDrag/lib/python3.10/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/home/logan/Dev/IntermediateDragon/binjaDatasets/resym_test_5hops/raw/variables.csv'
+resym_test_5hops Runtime: 0:00:01
+(interDrag) logan@Origin-LoganC:~/Dev/IntermediateDragon$ ./dragon/scripts/run_dragon_benchmarks.py 
+───────────────────────────────────────────────────────────────────────────────────────── Eval binja_tydamin_ep35.pt on TyDAmin Test Split ──────────────────────────────────────────────────────────────────────────────────────────
+Eval output folder /home/logan/Dev/IntermediateDragon/dragon_evals/tydamin_sample_5hops.dragon already exists! Skipping...
+──────────────────────────────────────────────────────────────────────────────────────── Eval binja_tydamin_ep35.pt on Coreutils Benchmarks ─────────────────────────────────────────────────────────────────────────────────────────
+Eval output folder /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O1_bench_5hops.dragon already exists! Skipping...
+Eval output folder /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O2_bench_5hops.dragon already exists! Skipping...
+Eval output folder /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O0_bench_5hops.dragon already exists! Skipping...
+Eval output folder /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O1_bench_5hops.dragon already exists! Skipping...
+Eval output folder /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_x64_O3_bench_5hops.dragon already exists! Skipping...
+Eval output folder /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O0_bench_5hops.dragon already exists! Skipping...
+Eval output folder /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O3_bench_5hops.dragon already exists! Skipping...
+Eval output folder /home/logan/Dev/IntermediateDragon/dragon_evals/coreutils_arm64_O2_bench_5hops.dragon already exists! Skipping...
+────────────────────────────────────────────────────────────────────────────────────────── Eval binja_tydamin_ep35.pt on Complex Benchmark ──────────────────────────────────────────────────────────────────────────────────────────
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/complex_bench_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_tydamin_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/complex_bench_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────── Running dragon model binja_tydamin_ep35.pt (offline) ────────────────────────────────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16/16 [00:14<00:00,  1.12it/s]
+Dragon Runtime: 0:00:14
+DRAGON binja_tydamin_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 15,511)
+Accuracy: 99.92%
+complex_bench_5hops Runtime: 0:00:17
+───────────────────────────────────────────────────────────────────────────────────────── Eval binja_resym_train_ep35.pt on ReSym Benchmark ─────────────────────────────────────────────────────────────────────────────────────────
+Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+name: /home/logan/Dev/IntermediateDragon/dragon_evals/resym_test_bench_5hops.dragon
+dragon: /home/logan/Dev/IntermediateDragon/evalModels/binja_resym_train_ep35.pt
+dragon_ryder: None
+sweep_confidence: None
+binaries: None
+limit: None
+ghidra_repo: None
+host: localhost
+port: 13100
+dataset: /home/logan/Dev/IntermediateDragon/binjaDatasets/resym_test_bench_5hops
+test_split: False
+device: cpu
+resume: False
+nrefs: 5
+confidence: 0.9
+influence: 10
+medium_conf: 0.65
+rollback_delete: False
+strategy: refs
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────────────────────────────────────────────────────────────────────────────── Running dragon model binja_resym_train_ep35.pt (offline) ──────────────────────────────────────────────────────────────────────────────────────
+ Warning: no in-memory dataset exists! Using file-based TypeSequenceDataset
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 22/22 [00:21<00:00,  1.03it/s]
+Dragon Runtime: 0:00:22
+DRAGON binja_resym_train_ep35 - Summary
+PredSeq vs. TypeSeq (dataset size = 22,237)
+Accuracy: 99.90%
+resym_test_bench_5hops Runtime: 0:00:24
