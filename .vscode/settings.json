@@ -1,6 +1,7 @@
 {
     "python.analysis.extraPaths": [
         "./wildebeest",
-        "./../../binaryninja/python/binaryninja"
+        "./../../binaryninja/python/binaryninja",
+        "/home/logan/ida-classroom-free-9.0/python"
     ]
 }
