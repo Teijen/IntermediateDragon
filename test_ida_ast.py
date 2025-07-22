@@ -919,11 +919,13 @@ def recursiveTraversalHybrid(parent, citem, ast_context):
                         recursiveTraversalHybrid(node, stmt, ast_context)
 
         elif citem.op == ida_hexrays.cit_throw:
-            for stmt in citem.cthrow:
-                recursiveTraversalHybrid(node, stmt, ast_context)
+            if citem.cthrow:
+                for stmt in citem.cthrow:
+                    recursiveTraversalHybrid(node, stmt, ast_context)
         elif citem.op == ida_hexrays.cit_try:
-            for stmt in citem.ctry:
-                recursiveTraversalHybrid(node, stmt, ast_context)
+            if citem.ctry:
+                for stmt in citem.ctry:
+                    recursiveTraversalHybrid(node, stmt, ast_context)
 
         elif citem.op == ida_hexrays.cit_return:
             recursiveTraversalHybrid(node, citem.creturn.expr, ast_context)
@@ -951,8 +953,9 @@ def recursiveTraversalHybrid(parent, citem, ast_context):
                 recursiveTraversalHybrid(node, citem.cdo.body, ast_context)
 
         elif citem.op == ida_hexrays.cit_block:
-            for stmt in citem.cblock:
-                recursiveTraversalHybrid(node, stmt, ast_context)
+            if citem.cblock:
+                for stmt in citem.cblock:
+                    recursiveTraversalHybrid(node, stmt, ast_context)
 
         elif citem.op == ida_hexrays.cit_expr:
             recursiveTraversalHybrid(node, citem.cexpr, ast_context)
@@ -965,6 +968,8 @@ def recursiveTraversalHybrid(parent, citem, ast_context):
 
         else:
             return
+        
+        return
         
     except Exception as e:
         print(f"Error processing citem in hybrid traversal: {e}")
@@ -1123,6 +1128,12 @@ def get_ast(funcInfo):
     
     return tu
 
+
+def remote_get_ast(func_info):
+    ast_result = get_ast(func_info)
+    return ast_result.to_dict()  # or json.dumps(ast_result.to_dict())
+
+
 def analyze_binary_with_ida(binary_path: Path, export_folder: Path, timeout_sec: int = 240, max_funcs: int = -1):
     """Analyze a binary with IDA and export ASTs"""
     
@@ -1192,7 +1203,10 @@ def analyze_binary_with_ida(binary_path: Path, export_folder: Path, timeout_sec:
 
             try:
                 print(f"Processing function {i+1}/{len(nonthunks)}: {func['name']} at {func['entry_point']:x}")
-                ast_result = get_ast(func)
+                #ast_result = get_ast(func)
+                remote_mod = headlessIda.import_module("idalib.test_ida_ast")
+                remote_mod.initialize_operation_dictionaries()
+                ast_result = remote_mod.remote_get_ast(func)
                 
                 if ast_result is None:
                     addr_str = f'{func["entry_point"]:x}'
@@ -1213,7 +1227,7 @@ def analyze_binary_with_ida(binary_path: Path, export_folder: Path, timeout_sec:
 
                 output_path = export_folder / filename
                 with open(output_path, 'w') as f:
-                    json.dump(ast_result.to_dict(), f, indent=2)
+                    json.dump(ast_result, f, indent=2)
                     
                 print(f"  Saved AST to {output_path}")
                 
@@ -1308,3 +1322,4 @@ def find_non_serializable_objects(obj, path="root"):
 
 if __name__ == "__main__":
     cProfile.run('main()', sort='cumtime')
+    # main()
