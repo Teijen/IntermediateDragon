@@ -12,6 +12,7 @@ import time
 from pathlib import Path
 from typing import Dict, Any
 import inspect
+import cProfile
 
 # IDA AST builder imports
 from headless_ida import HeadlessIda
@@ -1248,7 +1249,7 @@ def main():
     """Main function for debugging IDA AST export"""
     
     # Hardcoded paths for debugging
-    binary_path = Path("/home/logan/Dev/IntermediateDragon/dragonBinaries/tydamin_sample/app-accessibility/at-spi2-atk-2.38.0/libatk-bridge-2.0.so.0.0.0")  # Change this to your test binary
+    binary_path = Path("/home/logan/Dev/IntermediateDragon/exps/coreutils_arm64_O1_benchmark_ida.exp/rundata/run5/0.libstdbuf/libstdbuf.debug")  # Change this to your test binary
     export_folder = Path("./debug_ast_output")
     timeout_sec = 240
     max_funcs = 50  # Limit to 5 functions for debugging
@@ -1306,4 +1307,4 @@ def find_non_serializable_objects(obj, path="root"):
 
 
 if __name__ == "__main__":
-    exit(main())
+    cProfile.run('main()', sort='cumtime')
