@@ -818,7 +818,7 @@ def astNodeFromHexRays(citem, parentNode, ast_context):
         
     # Array subscript - enhanced with microcode bounds info
     elif op == ida_hexrays.cot_idx:
-        node = ast.ArraySubscriptExpr(ea)
+        node = ast.ArraySubscriptExpr()
         
     # Expression statements
     elif op == ida_hexrays.cit_expr:
@@ -835,7 +835,7 @@ def astNodeFromHexRays(citem, parentNode, ast_context):
     # Ternary operator (conditional expression)
     elif op == ida_hexrays.cot_tern:
         # Represent as parenthesized expression for now
-        node = ast.ParenExpr(ea)
+        node = ast.ParenExpr()
         
     # Type operations
     elif op == ida_hexrays.cot_type:
@@ -1143,7 +1143,7 @@ def analyze_binary_with_ida(binary_path: Path, export_folder: Path, timeout_sec:
     try:
         print(f"Starting IDA analysis of {binary_path}")
         headlessIda = HeadlessIda("/home/logan/ida-classroom-free-9.0/ida", str(binary_path))
-        
+        #headlessIda = HeadlessIda("/home/logan/idaedu-8.4/ida64",str(binary_path))
         # Import IDA modules after HeadlessIDA is initialized
         global idautils, ida_name, ida_hexrays, ida_funcs, ida_nalt, ida_bytes, ida_ua, ida_idaapi, idc, ida_range, ida_typeinf, ida_idp
         
@@ -1259,6 +1259,7 @@ def analyze_binary_with_ida(binary_path: Path, export_folder: Path, timeout_sec:
     
     return 0
 
+
 def main():
     """Main function for debugging IDA AST export"""
     
@@ -1318,8 +1319,13 @@ def find_non_serializable_objects(obj, path="root"):
                 print(f"FOUND CALLABLE ATTRIBUTE at {path}.{attr_name}: {attr_value}")
                 print(f"Type: {type(attr_value)}")
 
-
+import pstats
 
 if __name__ == "__main__":
-    cProfile.run('main()', sort='cumtime')
+    profiler = cProfile.Profile()
+    profiler.enable()
+    main()
+    profiler.disable()
+    stats = pstats.Stats(profiler).sort_stats('cumtime')
+    stats.print_stats(30)  # Show top 30 slowest functions
     # main()
