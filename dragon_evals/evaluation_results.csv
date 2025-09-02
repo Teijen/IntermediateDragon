@@ -1,0 +1,156 @@
+run_name,model_name,benchmark_name,benchmark_name_original,base_name,architecture,optimization,dataset_size,accuracy,runtime,experiment_type
+replication_evel_results,replicate_tydamin_ep35,tydamin_sample_5hops,tydamin_sample_5hops,tydamin_sample_5hops,,,185716.0,84.41,877,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,225,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_x64_O0_5hops,coreutils_x64_O0_5hops,coreutils,x64,O0,55613.0,74.92,229,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,223,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_x86_O1_5hops,coreutils_x86_O1_5hops,coreutils,x86,O1,46966.0,51.75,226,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,305,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_x64_O3_5hops,coreutils_x64_O3_5hops,coreutils,x64,O3,62000.0,73.24,309,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,643,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_arm64_O3_5hops,coreutils_arm64_O3_5hops,coreutils,arm64,O3,118272.0,84.91,650,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,203,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_x86_O0_5hops,coreutils_x86_O0_5hops,coreutils,x86,O0,58662.0,48.71,207,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,722,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_armhf_O3_5hops,coreutils_armhf_O3_5hops,coreutils,armhf,O3,119105.0,86.91,729,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,225,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_x64_O2_5hops,coreutils_x64_O2_5hops,coreutils,x64,O2,45954.0,71.42,229,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,297,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_x86_O3_5hops,coreutils_x86_O3_5hops,coreutils,x86,O3,73242.0,54.75,302,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,310,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_arm64_O0_5hops,coreutils_arm64_O0_5hops,coreutils,arm64,O0,79462.0,89.3,315,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,219,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_x86_O2_5hops,coreutils_x86_O2_5hops,coreutils,x86,O2,51738.0,52.8,224,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,496,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_armhf_O1_5hops,coreutils_armhf_O1_5hops,coreutils,armhf,O1,83122.0,84.18,501,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,343,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_arm64_O1_5hops,coreutils_arm64_O1_5hops,coreutils,arm64,O1,68528.0,86.31,348,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,567,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_armhf_O2_5hops,coreutils_armhf_O2_5hops,coreutils,armhf,O2,90912.0,86.85,573,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,448,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_arm64_O2_5hops,coreutils_arm64_O2_5hops,coreutils,arm64,O2,96370.0,83.85,454,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,454,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_armhf_O0_5hops,coreutils_armhf_O0_5hops,coreutils,armhf,O0,97966.0,85.81,460,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,223,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,coreutils_x64_O1_5hops,coreutils_x64_O1_5hops,coreutils,x64,O1,43652.0,72.4,227,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,482,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,complex_5hops,complex_5hops,complex_5hops,,,94203.0,66.47,488,Only Ghidra
+replication_evel_results,replicate_tydamin_ep35,Dragon,Dragon,Dragon,,,,,301,Only Ghidra
+replication_evel_results,replicate_resym_train_ep35,resym_test_5hops,resym_test_5hops,resym_test_5hops,,,81303.0,86.87,307,Only Ghidra
+binja_eval_results,binja_tydamin_ep35,tydamin_sample_5hops,tydamin_sample_5hops,tydamin_sample_5hops,,,19323.0,99.87,35,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,9,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,coreutils_x64_O1_5hops,coreutils_x64_O1_bench_5hops,coreutils,x64,O1,11314.0,99.98,12,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,8,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,coreutils_x64_O2_5hops,coreutils_x64_O2_bench_5hops,coreutils,x64,O2,9000.0,99.97,11,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,17,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,coreutils_x64_O0_5hops,coreutils_x64_O0_bench_5hops,coreutils,x64,O0,16737.0,99.86,19,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,10,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,coreutils_arm64_O1_5hops,coreutils_arm64_O1_bench_5hops,coreutils,arm64,O1,10026.0,99.99,12,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,9,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,coreutils_x64_O3_5hops,coreutils_x64_O3_bench_5hops,coreutils,x64,O3,10615.0,99.88,12,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,17,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,coreutils_arm64_O0_5hops,coreutils_arm64_O0_bench_5hops,coreutils,arm64,O0,16290.0,99.76,20,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,10,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,coreutils_arm64_O3_5hops,coreutils_arm64_O3_bench_5hops,coreutils,arm64,O3,10426.0,99.85,12,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,9,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,coreutils_arm64_O2_5hops,coreutils_arm64_O2_bench_5hops,coreutils,arm64,O2,9277.0,100.0,11,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,complex_5hops,complex_5hops,complex_5hops,,,,,1,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,resym_test_5hops,resym_test_5hops,resym_test_5hops,,,,,1,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,14,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,complex_5hops,complex_bench_5hops,complex_5hops,,,15511.0,99.92,17,Only Binary Ninja
+binja_eval_results,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,22,Only Binary Ninja
+binja_eval_results,binja_resym_train_ep35,resym_test_5hops,resym_test_bench_5hops,resym_test_5hops,,,22237.0,99.9,24,Only Binary Ninja
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,tydamin_sample_5hops,tydamin_sample_5hops,tydamin_sample_5hops,,,185716.0,46.71,1082,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,249,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_x64_O0_5hops,coreutils_x64_O0_5hops,coreutils,x64,O0,55613.0,59.2,254,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,258,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_x86_O1_5hops,coreutils_x86_O1_5hops,coreutils,x86,O1,46966.0,65.49,262,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,345,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_x64_O3_5hops,coreutils_x64_O3_5hops,coreutils,x64,O3,62000.0,67.81,350,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,745,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_arm64_O3_5hops,coreutils_arm64_O3_5hops,coreutils,arm64,O3,118272.0,92.7,751,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,223,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_x86_O0_5hops,coreutils_x86_O0_5hops,coreutils,x86,O0,58662.0,56.73,227,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,812,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_armhf_O3_5hops,coreutils_armhf_O3_5hops,coreutils,armhf,O3,119105.0,92.68,819,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,250,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_x64_O2_5hops,coreutils_x64_O2_5hops,coreutils,x64,O2,45954.0,63.49,254,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,333,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_x86_O3_5hops,coreutils_x86_O3_5hops,coreutils,x86,O3,73242.0,70.07,337,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,348,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_arm64_O0_5hops,coreutils_arm64_O0_5hops,coreutils,arm64,O0,79462.0,92.86,354,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,248,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_x86_O2_5hops,coreutils_x86_O2_5hops,coreutils,x86,O2,51738.0,65.91,252,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,559,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_armhf_O1_5hops,coreutils_armhf_O1_5hops,coreutils,armhf,O1,83122.0,93.6,564,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,394,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_arm64_O1_5hops,coreutils_arm64_O1_5hops,coreutils,arm64,O1,68528.0,92.65,399,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,656,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_armhf_O2_5hops,coreutils_armhf_O2_5hops,coreutils,armhf,O2,90912.0,93.63,662,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,514,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_arm64_O2_5hops,coreutils_arm64_O2_5hops,coreutils,arm64,O2,96370.0,93.37,521,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,527,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_armhf_O0_5hops,coreutils_armhf_O0_5hops,coreutils,armhf,O0,97966.0,92.84,533,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,267,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,coreutils_x64_O1_5hops,coreutils_x64_O1_5hops,coreutils,x64,O1,43652.0,62.89,271,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,559,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,complex_5hops,complex_5hops,complex_5hops,,,94203.0,74.4,565,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_tydamin_ep35,Dragon,Dragon,Dragon,,,,,327,Binary Ninja on Ghidra
+binjaOnDragonOriginalDatasets,binja_resym_train_ep35,resym_test_5hops,resym_test_5hops,resym_test_5hops,,,81303.0,43.67,333,Binary Ninja on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,tydamin_sample_5hops,tydamin_sample_5hops,tydamin_sample_5hops,,,185716.0,47.91,1049,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,264,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_x64_O0_5hops,coreutils_x64_O0_5hops,coreutils,x64,O0,55613.0,48.48,268,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,264,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_x86_O1_5hops,coreutils_x86_O1_5hops,coreutils,x86,O1,46966.0,23.61,267,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,352,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_x64_O3_5hops,coreutils_x64_O3_5hops,coreutils,x64,O3,62000.0,37.38,356,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,797,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_arm64_O3_5hops,coreutils_arm64_O3_5hops,coreutils,arm64,O3,118272.0,39.4,805,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,275,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_x86_O0_5hops,coreutils_x86_O0_5hops,coreutils,x86,O0,58662.0,28.41,281,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,1025,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_armhf_O3_5hops,coreutils_armhf_O3_5hops,coreutils,armhf,O3,119105.0,37.91,1034,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,311,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_x64_O2_5hops,coreutils_x64_O2_5hops,coreutils,x64,O2,45954.0,41.4,316,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,421,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_x86_O3_5hops,coreutils_x86_O3_5hops,coreutils,x86,O3,73242.0,26.33,427,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,444,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_arm64_O0_5hops,coreutils_arm64_O0_5hops,coreutils,arm64,O0,79462.0,50.76,452,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,321,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_x86_O2_5hops,coreutils_x86_O2_5hops,coreutils,x86,O2,51738.0,22.43,327,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,773,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_armhf_O1_5hops,coreutils_armhf_O1_5hops,coreutils,armhf,O1,83122.0,42.37,782,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,488,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_arm64_O1_5hops,coreutils_arm64_O1_5hops,coreutils,arm64,O1,68528.0,47.1,495,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,798,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_armhf_O2_5hops,coreutils_armhf_O2_5hops,coreutils,armhf,O2,90912.0,40.56,806,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,610,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_arm64_O2_5hops,coreutils_arm64_O2_5hops,coreutils,arm64,O2,96370.0,45.44,618,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,635,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_armhf_O0_5hops,coreutils_armhf_O0_5hops,coreutils,armhf,O0,97966.0,45.06,643,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,319,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,coreutils_x64_O1_5hops,coreutils_x64_O1_5hops,coreutils,x64,O1,43652.0,39.57,324,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,683,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,complex_5hops,complex_5hops,complex_5hops,,,94203.0,42.46,691,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,396,IDA Pro on Ghidra
+idaOnDragonOriginalDatasets,ida_resym_train_ep35,resym_test_5hops,resym_test_5hops,resym_test_5hops,,,81303.0,35.87,403,IDA Pro on Ghidra
+ida_eval_results,ida_tydamin_ep35,tydamin_sample_5hops,tydamin_sample_5hops,tydamin_sample_5hops,,,24035.0,68.03,18,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,6,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,coreutils_arm64_O0_5hops,coreutils_arm64_O0_ben_5hops,coreutils,arm64,O0,12209.0,81.05,8,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,9,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,coreutils_arm64_O2_5hops,coreutils_arm64_O2_ben_5hops,coreutils,arm64,O2,17846.0,84.81,11,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,5,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,coreutils_x64_O2_5hops,coreutils_x64_O2_ben_5hops,coreutils,x64,O2,11746.0,58.46,8,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,11,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,coreutils_arm64_O3_5hops,coreutils_arm64_O3_ben_5hops,coreutils,arm64,O3,23444.0,87.61,13,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,7,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,coreutils_arm64_O1_5hops,coreutils_arm64_O1_ben_5hops,coreutils,arm64,O1,15578.0,84.48,9,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,5,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,coreutils_x64_O0_5hops,coreutils_x64_O0_ben_5hops,coreutils,x64,O0,10013.0,67.63,7,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,6,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,coreutils_x64_O1_5hops,coreutils_x64_O1_ben_5hops,coreutils,x64,O1,10527.0,58.69,9,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,11,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,coreutils_x64_O3_5hops,coreutils_x64_O3_ben_5hops,coreutils,x64,O3,15521.0,58.6,14,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,2,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,complex_5hops,complex_5hops,complex_5hops,,,4101.0,65.62,4,Only IDA Pro
+ida_eval_results,ida_tydamin_ep35,Dragon,Dragon,Dragon,,,,,5,Only IDA Pro
+ida_eval_results,ida_resym_train_ep35,resym_test_5hops,resym_test_5hops,resym_test_5hops,,,8503.0,74.95,7,Only IDA Pro

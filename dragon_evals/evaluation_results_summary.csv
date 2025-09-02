@@ -1,0 +1,85 @@
+experiment_type,base_name,architecture,optimization,accuracy_mean,accuracy_std,accuracy_count
+Binary Ninja on Ghidra,Dragon,,,,,0
+Binary Ninja on Ghidra,complex_5hops,,,74.4,,1
+Binary Ninja on Ghidra,coreutils,arm64,O0,92.86,,1
+Binary Ninja on Ghidra,coreutils,arm64,O1,92.65,,1
+Binary Ninja on Ghidra,coreutils,arm64,O2,93.37,,1
+Binary Ninja on Ghidra,coreutils,arm64,O3,92.7,,1
+Binary Ninja on Ghidra,coreutils,armhf,O0,92.84,,1
+Binary Ninja on Ghidra,coreutils,armhf,O1,93.6,,1
+Binary Ninja on Ghidra,coreutils,armhf,O2,93.63,,1
+Binary Ninja on Ghidra,coreutils,armhf,O3,92.68,,1
+Binary Ninja on Ghidra,coreutils,x64,O0,59.2,,1
+Binary Ninja on Ghidra,coreutils,x64,O1,62.89,,1
+Binary Ninja on Ghidra,coreutils,x64,O2,63.49,,1
+Binary Ninja on Ghidra,coreutils,x64,O3,67.81,,1
+Binary Ninja on Ghidra,coreutils,x86,O0,56.73,,1
+Binary Ninja on Ghidra,coreutils,x86,O1,65.49,,1
+Binary Ninja on Ghidra,coreutils,x86,O2,65.91,,1
+Binary Ninja on Ghidra,coreutils,x86,O3,70.07,,1
+Binary Ninja on Ghidra,resym_test_5hops,,,43.67,,1
+Binary Ninja on Ghidra,tydamin_sample_5hops,,,46.71,,1
+IDA Pro on Ghidra,Dragon,,,,,0
+IDA Pro on Ghidra,complex_5hops,,,42.46,,1
+IDA Pro on Ghidra,coreutils,arm64,O0,50.76,,1
+IDA Pro on Ghidra,coreutils,arm64,O1,47.1,,1
+IDA Pro on Ghidra,coreutils,arm64,O2,45.44,,1
+IDA Pro on Ghidra,coreutils,arm64,O3,39.4,,1
+IDA Pro on Ghidra,coreutils,armhf,O0,45.06,,1
+IDA Pro on Ghidra,coreutils,armhf,O1,42.37,,1
+IDA Pro on Ghidra,coreutils,armhf,O2,40.56,,1
+IDA Pro on Ghidra,coreutils,armhf,O3,37.91,,1
+IDA Pro on Ghidra,coreutils,x64,O0,48.48,,1
+IDA Pro on Ghidra,coreutils,x64,O1,39.57,,1
+IDA Pro on Ghidra,coreutils,x64,O2,41.4,,1
+IDA Pro on Ghidra,coreutils,x64,O3,37.38,,1
+IDA Pro on Ghidra,coreutils,x86,O0,28.41,,1
+IDA Pro on Ghidra,coreutils,x86,O1,23.61,,1
+IDA Pro on Ghidra,coreutils,x86,O2,22.43,,1
+IDA Pro on Ghidra,coreutils,x86,O3,26.33,,1
+IDA Pro on Ghidra,resym_test_5hops,,,35.87,,1
+IDA Pro on Ghidra,tydamin_sample_5hops,,,47.91,,1
+Only Binary Ninja,Dragon,,,,,0
+Only Binary Ninja,complex_5hops,,,99.92,,1
+Only Binary Ninja,coreutils,arm64,O0,99.76,,1
+Only Binary Ninja,coreutils,arm64,O1,99.99,,1
+Only Binary Ninja,coreutils,arm64,O2,100.0,,1
+Only Binary Ninja,coreutils,arm64,O3,99.85,,1
+Only Binary Ninja,coreutils,x64,O0,99.86,,1
+Only Binary Ninja,coreutils,x64,O1,99.98,,1
+Only Binary Ninja,coreutils,x64,O2,99.97,,1
+Only Binary Ninja,coreutils,x64,O3,99.88,,1
+Only Binary Ninja,resym_test_5hops,,,99.9,,1
+Only Binary Ninja,tydamin_sample_5hops,,,99.87,,1
+Only Ghidra,Dragon,,,,,0
+Only Ghidra,complex_5hops,,,66.47,,1
+Only Ghidra,coreutils,arm64,O0,89.3,,1
+Only Ghidra,coreutils,arm64,O1,86.31,,1
+Only Ghidra,coreutils,arm64,O2,83.85,,1
+Only Ghidra,coreutils,arm64,O3,84.91,,1
+Only Ghidra,coreutils,armhf,O0,85.81,,1
+Only Ghidra,coreutils,armhf,O1,84.18,,1
+Only Ghidra,coreutils,armhf,O2,86.85,,1
+Only Ghidra,coreutils,armhf,O3,86.91,,1
+Only Ghidra,coreutils,x64,O0,74.92,,1
+Only Ghidra,coreutils,x64,O1,72.4,,1
+Only Ghidra,coreutils,x64,O2,71.42,,1
+Only Ghidra,coreutils,x64,O3,73.24,,1
+Only Ghidra,coreutils,x86,O0,48.71,,1
+Only Ghidra,coreutils,x86,O1,51.75,,1
+Only Ghidra,coreutils,x86,O2,52.8,,1
+Only Ghidra,coreutils,x86,O3,54.75,,1
+Only Ghidra,resym_test_5hops,,,86.87,,1
+Only Ghidra,tydamin_sample_5hops,,,84.41,,1
+Only IDA Pro,Dragon,,,,,0
+Only IDA Pro,complex_5hops,,,65.62,,1
+Only IDA Pro,coreutils,arm64,O0,81.05,,1
+Only IDA Pro,coreutils,arm64,O1,84.48,,1
+Only IDA Pro,coreutils,arm64,O2,84.81,,1
+Only IDA Pro,coreutils,arm64,O3,87.61,,1
+Only IDA Pro,coreutils,x64,O0,67.63,,1
+Only IDA Pro,coreutils,x64,O1,58.69,,1
+Only IDA Pro,coreutils,x64,O2,58.46,,1
+Only IDA Pro,coreutils,x64,O3,58.6,,1
+Only IDA Pro,resym_test_5hops,,,74.95,,1
+Only IDA Pro,tydamin_sample_5hops,,,68.03,,1
